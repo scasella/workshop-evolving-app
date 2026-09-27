@@ -1,0 +1,30 @@
+{
+  "observedAt": "2026-09-26T21:07:45.108Z",
+  "status": "blocked-before-container-probes",
+  "daemon": "linux/aarch64",
+  "runtime": {
+    "imageId": "sha256:cf9d38f4679bb995b79990c770a504b6493b9d5f46281bb932f8868003b94f15",
+    "os": "linux",
+    "architecture": "amd64",
+    "cliVersion": "0.155.1",
+    "cliHash": "0753dfe1d8b87a52436deb13eb1c549661ef4c84fee2c5aa688385eebeccb761",
+    "relayHash": "5e591c7309448707ec8e5fbc96c65a4082559d8ac61e8971890cd56bdfa5a6ad",
+    "profileHash": "dab1ce6878fe02e495c61af421d2bfe667bec983c889f289d9764f4e4fe52396",
+    "archiveHash": "a0ef8b2debc3bf747e07b1a039354de31300ac0dcc2276498ba281470b5d9115",
+    "nodeBase": "node:25.8.1-bookworm-slim@sha256:44bcbf493408a824104e74976ae5539f596c46cbe75ed0423a137552a555e2de"
+  },
+  "withInit": {
+    "exitCode": 1,
+    "stderr": "[FATAL tini (7)] exec node failed: Exec format error"
+  },
+  "withoutInit": {
+    "stderr": "exec /usr/local/bin/node: exec format error"
+  },
+  "dockerSettings": {
+    "UseVirtualizationFramework": true,
+    "UseVirtualizationFrameworkRosetta": true
+  },
+  "existingContainerLeftRunning": "an unrelated existing container",
+  "emulationRegistration": "awaiting-owner-approval",
+  "modelCalls": 0
+}

@@ -1,0 +1,4 @@
+{ "id": "add_note", "title": "Add note",
+  "inputs": { "id": { "type": "string", "max": 80 }, "title": { "type": "string", "max": 200 }, "body": { "type": "string", "max": 4000, "optional": true } },
+  "requires": [ { "when": { "not": { "exists": { "record": { "input": "id" } } } }, "reason": "A record with this ID already exists." } ],
+  "effects": [ { "create": { "type": "note", "id": { "input": "id" }, "fields": { "title": { "input": "title" }, "body": { "input": "body" } } } } ] }

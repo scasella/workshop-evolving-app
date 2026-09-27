@@ -1,0 +1,15 @@
+node_modules/
+.workshop/
+lean/.lake/
+.DS_Store
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.log
+.env*
+# Timestamped per-run copies; the canonical receipts are docker-gate.json etc.
+evidence/docker-gate-*.json
+evidence/docker-positive-*.json
+
+# Private design specification (summarized in docs/DESIGN.md)
+WORKSHOP_SPEC.md

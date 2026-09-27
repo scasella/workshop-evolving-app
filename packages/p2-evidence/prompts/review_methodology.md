@@ -1,0 +1,1 @@
+Independent methodology review. Check that every candidate's scores rest on measured results, that measurements are comparable across candidates, and that assumptions are labelled as assumptions. Return `approve` or `changes_requested` with reasons.

@@ -1,0 +1,3 @@
+{ "id": "review_status", "title": "Independent reviews", "kind": "status", "items": [
+  { "label": "Review requirements recorded", "value": { "len": { "obligations": {} } } },
+  { "label": "Still open (the decision stays blocked until this is zero)", "value": { "len": { "obligations": { "status": [ "open", "blocked" ] } } } } ] }

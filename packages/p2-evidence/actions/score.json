@@ -1,0 +1,79 @@
+{
+  "id": "score",
+  "title": "Score an alternative on a criterion",
+  "inputs": {
+    "alternative": {
+      "type": "string",
+      "max": 80
+    },
+    "criterion": {
+      "type": "string",
+      "max": 80
+    },
+    "score": {
+      "type": "int",
+      "min": 0,
+      "max": 10
+    }
+  },
+  "requires": [
+    {
+      "when": {
+        "exists": {
+          "record": {
+            "input": "alternative"
+          }
+        }
+      },
+      "reason": "Choose an existing alternative."
+    },
+    {
+      "when": {
+        "exists": {
+          "record": {
+            "input": "criterion"
+          }
+        }
+      },
+      "reason": "Choose an existing criterion."
+    },
+    {
+      "when": {
+        "eq": [
+          {
+            "get": [
+              {
+                "record": {
+                  "input": "alternative"
+                }
+              },
+              "status"
+            ]
+          },
+          {
+            "lit": "candidate"
+          }
+        ]
+      },
+      "reason": "Only candidate alternatives can be scored."
+    }
+  ],
+  "effects": [
+    {
+      "relate": {
+        "relation": "scores",
+        "from": {
+          "input": "alternative"
+        },
+        "to": {
+          "input": "criterion"
+        },
+        "fields": {
+          "score": {
+            "input": "score"
+          }
+        }
+      }
+    }
+  ]
+}

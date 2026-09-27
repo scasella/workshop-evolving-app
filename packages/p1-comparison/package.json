@@ -1,0 +1,52 @@
+{
+  "name": "comparison",
+  "version": 2,
+  "language": "workshop-lang/1",
+  "parent": null,
+  "interpreters": [
+    "workshop-lang/1"
+  ],
+  "files": [
+    "actions/add_alternative.json",
+    "actions/add_criterion.json",
+    "actions/add_note.json",
+    "actions/attach_evidence.json",
+    "actions/edit_alternative.json",
+    "actions/eliminate.json",
+    "actions/record_review.json",
+    "actions/request_ai_review.json",
+    "actions/request_comparison_review.json",
+    "actions/request_review.json",
+    "actions/score.json",
+    "actions/start_decision.json",
+    "migrations/001-comparison.json",
+    "planner.json",
+    "prompts/review.md",
+    "schemas/comparison.json",
+    "schemas/notebook.json",
+    "tests/comparison-flow.json",
+    "views/alternatives.json",
+    "views/comparison.json",
+    "views/evidence.json",
+    "views/notes.json",
+    "views/reviews.json",
+    "views/totals.json"
+  ],
+  "capabilities": [
+    "records.write",
+    "relations.write",
+    "obligations.open",
+    "evidence.submit",
+    "tasks.review",
+    "decisions.draft"
+  ],
+  "migration": "migrations/001-comparison.json",
+  "views": [
+    "comparison",
+    "totals",
+    "evidence",
+    "alternatives",
+    "reviews",
+    "notes"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "name": "notebook",
+  "version": 2,
+  "language": "workshop-lang/1",
+  "parent": "41f59ff5d547e5ab7a1f4c4f0e998207fe591a754fcbb4032a83335fa188eba5",
+  "interpreters": [
+    "workshop-lang/1"
+  ],
+  "files": [
+    "actions/add_alternative.json",
+    "actions/add_note.json",
+    "actions/edit_alternative.json",
+    "actions/record_review.json",
+    "actions/request_ai_review.json",
+    "actions/request_review.json",
+    "actions/start_decision.json",
+    "actions/add_criterion.json",
+    "actions/score.json",
+    "actions/attach_evidence.json",
+    "actions/request_comparison_review.json",
+    "planner.json",
+    "prompts/review.md",
+    "schemas/notebook.json",
+    "schemas/comparison.json",
+    "views/alternatives.json",
+    "views/notes.json",
+    "views/reviews.json",
+    "views/comparison.json",
+    "views/evidence.json"
+  ],
+  "capabilities": [
+    "records.write",
+    "relations.write",
+    "obligations.open",
+    "evidence.submit",
+    "tasks.review",
+    "decisions.draft"
+  ],
+  "migration": null,
+  "views": [
+    "comparison",
+    "alternatives",
+    "evidence",
+    "notes",
+    "reviews"
+  ]
+}

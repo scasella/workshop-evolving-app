@@ -1,0 +1,10 @@
+{ "id": "comparison", "title": "Comparison (score · measured results)", "kind": "matrix", "empty": "Add alternatives and criteria.",
+  "rows": { "filter": { "list": { "records": "alternative" }, "as": "a", "where": { "eq": [ { "get": [ { "var": "a" }, "status" ] }, { "lit": "candidate" } ] } } },
+  "columns": { "records": "criterion" },
+  "rowLabel": { "concat": [ { "get": [ { "var": "row" }, "title" ] }, { "lit": " (" },
+    { "count": { "list": { "related": { "relation": "supports", "to": { "get": [ { "var": "row" }, "id" ] } } }, "as": "s", "where": { "eq": [ { "get": [ { "record": { "get": [ { "var": "s" }, "from" ] } }, "basis" ] }, { "lit": "measured" } ] } } },
+    { "lit": " measured)" } ] },
+  "columnLabel": { "concat": [ { "get": [ { "var": "column" }, "title" ] }, { "lit": " (×" }, { "get": [ { "var": "column" }, "weight" ] }, { "lit": ")" } ] },
+  "cell": { "if": [ { "eq": [ { "len": { "related": { "relation": "scores", "from": { "get": [ { "var": "row" }, "id" ] }, "to": { "get": [ { "var": "column" }, "id" ] } } } }, { "lit": 0 } ] },
+    { "lit": "—" },
+    { "sum": { "list": { "related": { "relation": "scores", "from": { "get": [ { "var": "row" }, "id" ] }, "to": { "get": [ { "var": "column" }, "id" ] } } }, "as": "s", "to": { "get": [ { "var": "s" }, "score" ] } } } ] } }

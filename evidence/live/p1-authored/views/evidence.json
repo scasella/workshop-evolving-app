@@ -1,0 +1,13 @@
+{
+  "id": "evidence",
+  "title": "Evidence",
+  "kind": "table",
+  "empty": "Attach evidence to the alternatives.",
+  "rows": {"records": "evidence"},
+  "columns": [
+    {"label": "Evidence", "value": {"get": [{"var": "row"}, "title"]}},
+    {"label": "Kind", "value": {"get": [{"var": "row"}, "kind"]}},
+    {"label": "Stance", "value": {"get": [{"var": "row"}, "stance"]}},
+    {"label": "Alternative", "value": {"map": {"list": {"filter": {"list": {"records": "alternative"}, "as": "a", "where": {"gt": [{"len": {"related": {"relation": "alternative_evidence", "from": {"get": [{"var": "a"}, "id"]}, "to": {"get": [{"var": "row"}, "id"]}}}}, {"lit": 0}]}}}, "as": "a", "to": {"get": [{"var": "a"}, "title"]}}}}
+  ]
+}

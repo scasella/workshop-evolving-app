@@ -1,0 +1,11 @@
+{
+  "imageId": "sha256:1d0a668ba6509f6baa2ca1dda2dfedef0ac771c09150576232eefc5b3992c344",
+  "os": "linux",
+  "architecture": "amd64",
+  "cliVersion": "0.155.1",
+  "cliHash": "0753dfe1d8b87a52436deb13eb1c549661ef4c84fee2c5aa688385eebeccb761",
+  "relayHash": "25a14232c4b5f03435d6dfc293cc533eaaeba48136c0f618b82fc5db47317313",
+  "profileHash": "dab1ce6878fe02e495c61af421d2bfe667bec983c889f289d9764f4e4fe52396",
+  "archiveHash": "a0ef8b2debc3bf747e07b1a039354de31300ac0dcc2276498ba281470b5d9115",
+  "nodeBase": "node:25.8.1-bookworm-slim@sha256:44bcbf493408a824104e74976ae5539f596c46cbe75ed0423a137552a555e2de"
+}

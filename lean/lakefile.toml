@@ -1,0 +1,9 @@
+name = "workshop-checker"
+defaultTargets = ["workshop-checker"]
+
+[[lean_lib]]
+name = "WorkshopChecker"
+
+[[lean_exe]]
+name = "workshop-checker"
+root = "Main"

@@ -1,0 +1,4 @@
+{ "id": "reviews", "title": "Review requirements", "kind": "table", "empty": "No review requirements.",
+  "rows": { "obligations": {} },
+  "columns": [ { "label": "Requirement", "value": { "get": [ { "var": "row" }, "title" ] } }, { "label": "Status", "value": { "get": [ { "var": "row" }, "status" ] } },
+    { "label": "Decision", "value": { "get": [ { "var": "row" }, "gate" ] } } ] }

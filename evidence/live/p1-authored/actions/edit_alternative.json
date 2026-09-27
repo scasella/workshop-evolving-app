@@ -1,0 +1,4 @@
+{ "id": "edit_alternative", "title": "Edit alternative summary",
+  "inputs": { "id": { "type": "string", "max": 80 }, "summary": { "type": "string", "max": 2000 } },
+  "requires": [ { "when": { "eq": [ { "get": [ { "record": { "input": "id" } }, "type" ] }, { "lit": "alternative" } ] }, "reason": "Choose an existing alternative." } ],
+  "effects": [ { "update": { "type": "alternative", "id": { "input": "id" }, "fields": { "summary": { "input": "summary" } } } } ] }

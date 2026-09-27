@@ -1,0 +1,3 @@
+{ "id": "notes", "title": "Notes", "kind": "table", "empty": "No notes yet.",
+  "rows": { "records": "note" },
+  "columns": [ { "label": "Title", "value": { "get": [ { "var": "row" }, "title" ] } }, { "label": "Body", "value": { "get": [ { "var": "row" }, "body" ] } } ] }

@@ -1,0 +1,7 @@
+{ "rules": [
+  { "id": "add_alternatives", "when": { "lt": [ { "len": { "records": "alternative" } }, { "lit": 2 } ] },
+    "suggest": { "action": "add_alternative", "label": "Add the options you are choosing between (at least two)", "input": {} } },
+  { "id": "start_decision", "when": { "and": [ { "ge": [ { "len": { "records": "alternative" } }, { "lit": 2 } ] }, { "eq": [ { "len": { "decisions": {} } }, { "lit": 0 } ] } ] },
+    "suggest": { "action": "start_decision", "label": "Start a decision between your options", "input": {} } },
+  { "id": "require_review", "when": { "and": [ { "ge": [ { "len": { "decisions": { "status": "draft" } } }, { "lit": 1 } ] }, { "eq": [ { "len": { "obligations": {} } }, { "lit": 0 } ] } ] },
+    "suggest": { "action": "request_review", "label": "Require a review before deciding", "input": {} } } ] }

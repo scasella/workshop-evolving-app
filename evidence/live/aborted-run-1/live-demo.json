@@ -1,0 +1,59 @@
+{
+  "kind": "LIVE demonstration: real Codex calls via local codex exec (owner-authorized); authored packages are model output",
+  "model": "gpt-6-astra",
+  "status": "running",
+  "allowance": {
+    "total": 10,
+    "used": 1
+  },
+  "hostDir": "<workspace>/.workshop/live-host",
+  "steps": [
+    {
+      "at": "2026-09-27T03:27:45.578Z",
+      "step": "P0: live Codex review job (bounded, charged)",
+      "data": {
+        "results": [
+          {
+            "task": "task-ob-ai-early-6",
+            "outcome": "failed",
+            "detail": [
+              "Cannot read properties of undefined (reading 'slice')"
+            ]
+          }
+        ],
+        "peakConcurrency": 1,
+        "reviewer": "codex"
+      }
+    },
+    {
+      "at": "2026-09-27T03:27:45.584Z",
+      "step": "Host restarted; committed review not rerun",
+      "data": {
+        "rerun": 0,
+        "pending": [
+          "ob-ai-early",
+          "ob-r17"
+        ]
+      }
+    }
+  ],
+  "reviewReceipts": [
+    {
+      "mode": "live-local-codex",
+      "model": "gpt-6-astra",
+      "start": "2026-09-27T03:27:35.654Z",
+      "end": "2026-09-27T03:27:45.577Z",
+      "seconds": 10,
+      "binaryHash": "8eaf1ad12fe6bf89b1710330f58900014322c7c5af677e43be116d8ac5fc0a9e",
+      "cliVersion": "codex-cli 0.155.1",
+      "inputHash": "6028f76047579fc8467f0fc5099446d06c442e1075112972949b770957fbe99b",
+      "configurationHash": "94948d28a92a9c606ebdf37f5885506c46aef283aa9b2e19d808ff52def1ffe6",
+      "exit": 0,
+      "classification": "exited",
+      "usage": null,
+      "outcome": "rejected-output",
+      "stderrTail": ""
+    }
+  ],
+  "authorAttempts": []
+}

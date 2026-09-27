@@ -1,0 +1,124 @@
+{
+  "types": [
+    {
+      "id": "criterion",
+      "title": "Criterion",
+      "fields": {
+        "title": {
+          "type": "string",
+          "max": 200,
+          "semantic": "criterion/title"
+        },
+        "weight": {
+          "type": "int",
+          "min": 1,
+          "max": 5,
+          "semantic": "criterion/weight/1-5"
+        }
+      }
+    },
+    {
+      "id": "evidence",
+      "title": "Evidence",
+      "fields": {
+        "title": {
+          "type": "string",
+          "max": 200,
+          "semantic": "evidence/title"
+        },
+        "kind": {
+          "type": "enum",
+          "values": [
+            "measurement",
+            "citation",
+            "observation"
+          ],
+          "semantic": "evidence/kind"
+        },
+        "detail": {
+          "type": "string",
+          "max": 4000,
+          "default": "",
+          "semantic": "evidence/detail"
+        },
+        "source": {
+          "type": "artifact",
+          "optional": true,
+          "semantic": "evidence/source-artifact"
+        },
+        "basis": {
+          "type": "enum",
+          "values": [
+            "measured",
+            "assumed"
+          ],
+          "optional": true,
+          "semantic": "evidence/basis"
+        }
+      }
+    },
+    {
+      "id": "assumption",
+      "title": "Assumption",
+      "fields": {
+        "statement": {
+          "type": "string",
+          "max": 1000,
+          "semantic": "assumption/statement"
+        },
+        "confidence": {
+          "type": "int",
+          "min": 1,
+          "max": 5,
+          "semantic": "assumption/confidence/1-5"
+        }
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "scores",
+      "title": "Scored against",
+      "from": "alternative",
+      "to": "criterion",
+      "fields": {
+        "score": {
+          "type": "int",
+          "min": 0,
+          "max": 10,
+          "semantic": "score/points/0-10"
+        }
+      }
+    },
+    {
+      "id": "supports",
+      "title": "Evidence for",
+      "from": "evidence",
+      "to": "alternative",
+      "fields": {
+        "stance": {
+          "type": "enum",
+          "values": [
+            "for",
+            "against"
+          ],
+          "semantic": "evidence/stance"
+        }
+      }
+    },
+    {
+      "id": "assumes",
+      "title": "Assumed by",
+      "from": "assumption",
+      "to": "alternative",
+      "fields": {
+        "note": {
+          "type": "string",
+          "max": 1000,
+          "default": "",
+          "semantic": "assumption/note"
+        }
+      }
+    }
+  ]
+}

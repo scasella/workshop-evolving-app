@@ -1,0 +1,8 @@
+{ "id": "attach_evidence", "title": "Attach evidence to an alternative",
+  "inputs": { "id": { "type": "string", "max": 80 }, "alternative": { "type": "string", "max": 80 }, "title": { "type": "string", "max": 200 },
+    "kind": { "type": "enum", "values": [ "measurement", "citation", "observation" ] }, "stance": { "type": "enum", "values": [ "for", "against" ] },
+    "detail": { "type": "string", "max": 4000, "default": "" }, "source": { "type": "artifact", "optional": true } },
+  "requires": [ { "when": { "eq": [ { "get": [ { "record": { "input": "alternative" } }, "type" ] }, { "lit": "alternative" } ] }, "reason": "Attach evidence to an existing alternative." } ],
+  "effects": [
+    { "create": { "type": "evidence", "id": { "input": "id" }, "fields": { "title": { "input": "title" }, "kind": { "input": "kind" }, "detail": { "input": "detail" }, "source": { "input": "source" } } } },
+    { "relate": { "relation": "supports", "from": { "input": "id" }, "to": { "input": "alternative" }, "fields": { "stance": { "input": "stance" } } } } ] }

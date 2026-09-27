@@ -1,0 +1,6 @@
+{ "id": "measured", "title": "Measured results", "kind": "table", "empty": "No measured results yet.",
+  "rows": { "filter": { "list": { "related": { "relation": "supports" } }, "as": "s", "where": { "eq": [ { "get": [ { "record": { "get": [ { "var": "s" }, "from" ] } }, "basis" ] }, { "lit": "measured" } ] } } },
+  "columns": [
+    { "label": "Result", "value": { "get": [ { "record": { "get": [ { "var": "row" }, "from" ] } }, "title" ] } },
+    { "label": "Candidate", "value": { "get": [ { "record": { "get": [ { "var": "row" }, "to" ] } }, "title" ] } },
+    { "label": "Stance", "value": { "get": [ { "var": "row" }, "stance" ] } } ] }

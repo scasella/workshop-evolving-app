@@ -1,0 +1,14 @@
+{
+  "id": "comparison",
+  "title": "Comparison",
+  "kind": "matrix",
+  "rows": {"records": "alternative"},
+  "columns": {"records": "criterion"},
+  "rowLabel": {"get": [{"var": "row"}, "title"]},
+  "columnLabel": {"concat": [{"get": [{"var": "column"}, "title"]}, {"lit": " (weight "}, {"get": [{"var": "column"}, "weight"]}, {"lit": ")"}]},
+  "cell": {"if": [
+    {"gt": [{"len": {"related": {"relation": "criterion_score", "from": {"get": [{"var": "row"}, "id"]}, "to": {"get": [{"var": "column"}, "id"]}}}}, {"lit": 0}]},
+    {"sum": {"list": {"related": {"relation": "criterion_score", "from": {"get": [{"var": "row"}, "id"]}, "to": {"get": [{"var": "column"}, "id"]}}}, "as": "s", "to": {"get": [{"var": "s"}, "score"]}}},
+    {"lit": "Unscored"}
+  ]}
+}

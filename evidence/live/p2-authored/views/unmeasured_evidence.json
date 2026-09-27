@@ -1,0 +1,14 @@
+{
+  "id": "unmeasured_evidence",
+  "title": "Unmeasured evidence",
+  "kind": "table",
+  "empty": "No unmeasured evidence.",
+  "rows": {"filter": {"list": {"records": "evidence"}, "as": "e", "where": {"ne": [{"get": [{"var": "e"}, "basis"]}, {"lit": "measured"}]}}},
+  "columns": [
+    {"label": "Evidence", "value": {"get": [{"var": "row"}, "title"]}},
+    {"label": "Basis", "value": {"get": [{"var": "row"}, "basis"]}},
+    {"label": "Kind", "value": {"get": [{"var": "row"}, "kind"]}},
+    {"label": "Stance", "value": {"get": [{"var": "row"}, "stance"]}},
+    {"label": "Alternative", "value": {"map": {"list": {"filter": {"list": {"records": "alternative"}, "as": "a", "where": {"gt": [{"len": {"related": {"relation": "alternative_evidence", "from": {"get": [{"var": "a"}, "id"]}, "to": {"get": [{"var": "row"}, "id"]}}}}, {"lit": 0}]}}}, "as": "a", "to": {"get": [{"var": "a"}, "title"]}}}}
+  ]
+}

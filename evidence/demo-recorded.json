@@ -1,0 +1,151 @@
+{
+  "observedAt": "2026-09-27T11:50:13.597Z",
+  "kind": "DETERMINISTIC demonstration (recorded author responses through the real Codex CLI; simulated reviewer). Not the live P29 run.",
+  "dir": "<tmp>",
+  "steps": [
+    {
+      "step": "P0 notebook: two alternatives, open review r17, one bounded review job committed (SIMULATED reviewer); host restarted",
+      "result": {
+        "job": [
+          {
+            "task": "task-ob-ai-early-6",
+            "outcome": "committed",
+            "detail": []
+          }
+        ],
+        "pending": [
+          "ob-r17"
+        ],
+        "epochAfterRestart": 2,
+        "notRerun": true
+      }
+    },
+    {
+      "step": "Faulty P1 (retires the package r17 continues through) authored via the real CLI with a RECORDED response, then rejected",
+      "result": {
+        "author": {
+          "attempt": "p1-faulty",
+          "state": "proposed",
+          "mode": "recorded",
+          "inputHash": "418a72891bff76b4c37097e00677e863f8533e0c2d61ed27641629a24bbe7cfd",
+          "candidate": "9e9b0658e284c0a297700159c5508c91eca714fc4d1e901d0b3d229d4aa82247"
+        },
+        "reasons": [
+          "This update retires package 1a47d86527f6, which ob-ai-early still needs",
+          "This update retires package 1a47d86527f6, which ob-r17 still needs",
+          "This update retires package 1a47d86527f6, removing the continuation for review ob-r17 (Review: Which storage engine?)"
+        ]
+      }
+    },
+    {
+      "step": "P1 applied after practice (practice edit not applied live); r17 continued through its pinned P0 route",
+      "result": {
+        "author": {
+          "attempt": "p1",
+          "state": "proposed",
+          "mode": "recorded",
+          "inputHash": "0602d4096fd9dc7968d06408f566ce6be03889fe16b9f8e3bc7bb0188f1f9309",
+          "candidate": "f22b7a386b8c5051803669889af105c75726f02f85487e781b9c1540d0a45b7c"
+        },
+        "packageTests": [
+          {
+            "id": "comparison_flow",
+            "title": "Criteria appear in the matrix; guarded actions refuse bad input",
+            "passed": true,
+            "failures": [],
+            "world": "p1-practice-t1"
+          }
+        ],
+        "practiceLeak": false,
+        "r17": "open"
+      }
+    },
+    {
+      "step": "P2 authored via RECORDED response; live review changed during preview → stale → refreshed → applied",
+      "result": {
+        "author": {
+          "attempt": "p2",
+          "state": "proposed",
+          "mode": "recorded",
+          "inputHash": "50534196d704ceb479412d8c51f65d12bca3169c1df6bb6027822735a1e31d65",
+          "candidate": "ebeeff9df3707d2b0839e42edd5e649be00f87125bb04ff1fe90d8e4e992ebf8"
+        },
+        "stale": [
+          "The project changed after this preview (now revision 18, preview of 17); refresh it before applying"
+        ],
+        "basis": {
+          "ev1": "measured",
+          "ev2": "assumed"
+        }
+      }
+    },
+    {
+      "step": "Third option, measured vs assumed, two parallel independent reviews (SIMULATED); finalize blocked until both complete, then final",
+      "result": {
+        "blocked": [
+          "Cannot finalize: ob-ai-early-r2 (Agent review: Which storage engine?) is open",
+          "Cannot finalize: ob-final-method (Methodology review: Which storage engine?) is open",
+          "Cannot finalize: ob-final-risk (Risk review: Which storage engine?) is open",
+          "Cannot finalize: ob-r17-r2 (Review: Which storage engine?) is open"
+        ],
+        "reviews": {
+          "results": [
+            {
+              "task": "task-ob-ai-early-r2-26",
+              "outcome": "committed",
+              "detail": []
+            },
+            {
+              "task": "task-ob-final-method-26",
+              "outcome": "committed",
+              "detail": []
+            },
+            {
+              "task": "task-ob-final-risk-26",
+              "outcome": "committed",
+              "detail": []
+            }
+          ],
+          "peakConcurrency": 2,
+          "reviewer": "simulated"
+        },
+        "final": {
+          "choice": "sqlite",
+          "finalizedRevision": 31,
+          "id": "d1",
+          "question": "Which storage engine?",
+          "status": "final",
+          "subjects": [
+            "duckdb",
+            "postgres",
+            "sqlite"
+          ]
+        }
+      }
+    },
+    {
+      "step": "Active package corrupted: recovery still lists state and broken reference; repaired from hash-verified source",
+      "result": {
+        "broken": {
+          "packageAvailable": false,
+          "recovery": [
+            "World project references unavailable package 36cd5a60bc99"
+          ],
+          "pending": 0
+        },
+        "repaired": true
+      }
+    },
+    {
+      "step": "Exported and verified",
+      "result": {
+        "verify": {
+          "ok": true,
+          "problems": []
+        },
+        "packages": 3,
+        "artifacts": 4
+      }
+    }
+  ]
+}

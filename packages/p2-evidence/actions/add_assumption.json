@@ -1,0 +1,7 @@
+{ "id": "add_assumption", "title": "Record an assumption behind a candidate",
+  "inputs": { "id": { "type": "string", "max": 80 }, "alternative": { "type": "string", "max": 80 }, "statement": { "type": "string", "max": 1000 },
+    "confidence": { "type": "int", "min": 1, "max": 5 }, "note": { "type": "string", "max": 1000, "default": "" } },
+  "requires": [ { "when": { "eq": [ { "get": [ { "record": { "input": "alternative" } }, "type" ] }, { "lit": "alternative" } ] }, "reason": "Choose an existing alternative." } ],
+  "effects": [
+    { "create": { "type": "assumption", "id": { "input": "id" }, "fields": { "statement": { "input": "statement" }, "confidence": { "input": "confidence" } } } },
+    { "relate": { "relation": "assumes", "from": { "input": "id" }, "to": { "input": "alternative" }, "fields": { "note": { "input": "note" } } } } ] }

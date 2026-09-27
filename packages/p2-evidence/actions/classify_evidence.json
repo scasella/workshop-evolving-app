@@ -1,0 +1,4 @@
+{ "id": "classify_evidence", "title": "Mark evidence as measured or assumed",
+  "inputs": { "id": { "type": "string", "max": 80 }, "basis": { "type": "enum", "values": [ "measured", "assumed" ] } },
+  "requires": [ { "when": { "eq": [ { "get": [ { "record": { "input": "id" } }, "type" ] }, { "lit": "evidence" } ] }, "reason": "Choose existing evidence." } ],
+  "effects": [ { "update": { "type": "evidence", "id": { "input": "id" }, "fields": { "basis": { "input": "basis" } } } } ] }

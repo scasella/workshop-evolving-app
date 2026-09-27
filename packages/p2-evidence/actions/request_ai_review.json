@@ -1,0 +1,8 @@
+{ "id": "request_ai_review", "title": "Require an independent agent review before deciding",
+  "inputs": { "key": { "type": "string", "max": 60 }, "decision": { "type": "string", "max": 80 } },
+  "let": [ { "name": "d", "value": { "decision": { "input": "decision" } } } ],
+  "requires": [ { "when": { "exists": { "var": "d" } }, "reason": "Start the decision first." } ],
+  "effects": [
+    { "obligation": { "key": { "input": "key" }, "title": { "concat": [ { "lit": "Agent review: " }, { "get": [ { "var": "d" }, "question" ] } ] },
+      "subjects": { "get": [ { "var": "d" }, "subjects" ] }, "gate": { "input": "decision" }, "verdicts": [ "approve" ], "discharge": "job", "independent": true, "continuation": "record_review" } },
+    { "task": { "kind": "review", "obligation": { "concat": [ { "lit": "ob-" }, { "input": "key" } ] }, "prompt": "review" } } ] }

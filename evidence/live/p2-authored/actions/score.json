@@ -1,0 +1,16 @@
+{
+  "id": "score",
+  "title": "Score an alternative",
+  "inputs": {
+    "alternative": {"type": "string", "max": 80},
+    "criterion": {"type": "string", "max": 80},
+    "score": {"type": "int", "min": 0, "max": 10}
+  },
+  "requires": [
+    {"when": {"eq": [{"get": [{"record": {"input": "alternative"}}, "type"]}, {"lit": "alternative"}]}, "reason": "Choose an existing alternative."},
+    {"when": {"eq": [{"get": [{"record": {"input": "criterion"}}, "type"]}, {"lit": "criterion"}]}, "reason": "Choose an existing criterion."}
+  ],
+  "effects": [
+    {"relate": {"relation": "criterion_score", "from": {"input": "alternative"}, "to": {"input": "criterion"}, "fields": {"score": {"input": "score"}}}}
+  ]
+}

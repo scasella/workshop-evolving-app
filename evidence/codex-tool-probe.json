@@ -1,0 +1,338 @@
+{
+  "observedAt": "2026-09-26T20:27:58.144Z",
+  "mode": "credential-free local transport fixture",
+  "executable": "/opt/homebrew/bin/codex",
+  "executableHash": "8eaf1ad12fe6bf89b1710330f58900014322c7c5af677e43be116d8ac5fc0a9e",
+  "disabledFeatures": [
+    "api_key_model_discovery",
+    "apply_patch_preserve_line_endings",
+    "apply_patch_streaming_events",
+    "apps",
+    "artifact",
+    "auth_elicitation",
+    "background_paginated_rollout_migration",
+    "bedrock_setup_wizard",
+    "browser_use",
+    "browser_use_external",
+    "browser_use_full_cdp_access",
+    "chronicle",
+    "code_mode",
+    "code_mode_host",
+    "code_mode_interrupt",
+    "code_mode_only",
+    "code_mode_prewarm",
+    "codex_apps_mcp_2026_07_28",
+    "compaction_image_budget",
+    "computer_use",
+    "concurrent_reasoning_summaries",
+    "content_item_kinds",
+    "context_management",
+    "current_time_reminder",
+    "cwd_relative_turn_diffs",
+    "default_mode_request_user_input",
+    "deferred_executor",
+    "deferred_tool_world_state",
+    "enable_mcp_apps",
+    "enable_request_compression",
+    "exec_permission_approvals",
+    "executed_tool_call_metadata",
+    "executor_capability_discovery",
+    "external_agent_memory_import",
+    "fast_mode",
+    "goals",
+    "guardian_approval",
+    "guardian_enhanced_node_repl_transcripts",
+    "guardian_ext",
+    "guardian_node_repl_transcript_images",
+    "guardian_reuse_parent_compaction",
+    "guardianv2",
+    "guardianv2.thread_context",
+    "hooks",
+    "image_generation",
+    "image_resize_notice",
+    "in_app_browser",
+    "in_app_chat",
+    "in_app_dictation",
+    "in_app_local_automation",
+    "in_app_updates",
+    "local_thread_store_compression",
+    "mcp_2026_07_28",
+    "mcp_oauth_refresh_coordination",
+    "memories",
+    "mentions_v2",
+    "multi_agent",
+    "multi_agent_v2",
+    "network_proxy",
+    "non_prefixed_mcp_tool_names",
+    "omit_app_server_notification_media",
+    "personality",
+    "plugin_sharing",
+    "plugins",
+    "powershell_shell_version",
+    "prevent_idle_sleep",
+    "psp",
+    "realtime_conversation",
+    "reasoning_effort_override",
+    "recommended_plugins",
+    "remote_plugin",
+    "request_permissions_tool",
+    "respect_system_proxy",
+    "retain_client_developer_messages",
+    "rollout_budget",
+    "runtime_metrics",
+    "secret_auth_storage",
+    "shell_snapshot",
+    "shell_snapshot_v2",
+    "shell_tool",
+    "shell_zsh_fork",
+    "skill_mcp_dependency_install",
+    "skill_search",
+    "skip_host_skill_discovery",
+    "sleep_tool",
+    "standalone_web_search",
+    "step_model_switching",
+    "terminal_visualization_instructions",
+    "token_budget",
+    "tool_call_mcp_elicitation",
+    "tool_suggest",
+    "transcript_v2",
+    "unbounded_connection_retries",
+    "unified_exec",
+    "unified_exec_tty",
+    "unified_image_budget",
+    "use_agent_identity",
+    "use_legacy_landlock",
+    "view_image",
+    "web_search_cached",
+    "web_search_request",
+    "windows_sandbox_service",
+    "workspace_dependencies",
+    "worktrees",
+    "write_stdin_approval"
+  ],
+  "result": {
+    "code": 0,
+    "signal": null
+  },
+  "requests": [
+    {
+      "path": "/v1/responses",
+      "model": "gpt-6-astra",
+      "tools": [],
+      "toolChoice": "auto",
+      "requestKeys": [
+        "model",
+        "input",
+        "tool_choice",
+        "parallel_tool_calls",
+        "reasoning",
+        "store",
+        "stream",
+        "include",
+        "prompt_cache_key",
+        "text",
+        "client_metadata"
+      ],
+      "toolResults": []
+    },
+    {
+      "path": "/v1/responses",
+      "model": "gpt-6-astra",
+      "tools": [],
+      "toolChoice": "auto",
+      "requestKeys": [
+        "model",
+        "input",
+        "tool_choice",
+        "parallel_tool_calls",
+        "reasoning",
+        "store",
+        "stream",
+        "include",
+        "prompt_cache_key",
+        "text",
+        "client_metadata"
+      ],
+      "toolResults": [
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-342a-7783-9e59-69241aa638ef",
+          "call_id": "call_1",
+          "output": "unsupported call: exec_command"
+        }
+      ]
+    },
+    {
+      "path": "/v1/responses",
+      "model": "gpt-6-astra",
+      "tools": [],
+      "toolChoice": "auto",
+      "requestKeys": [
+        "model",
+        "input",
+        "tool_choice",
+        "parallel_tool_calls",
+        "reasoning",
+        "store",
+        "stream",
+        "include",
+        "prompt_cache_key",
+        "text",
+        "client_metadata"
+      ],
+      "toolResults": [
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-342a-7783-9e59-69241aa638ef",
+          "call_id": "call_1",
+          "output": "unsupported call: exec_command"
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-342c-7831-bc69-883e356cc595",
+          "call_id": "call_2",
+          "output": "unsupported call: shell"
+        }
+      ]
+    },
+    {
+      "path": "/v1/responses",
+      "model": "gpt-6-astra",
+      "tools": [],
+      "toolChoice": "auto",
+      "requestKeys": [
+        "model",
+        "input",
+        "tool_choice",
+        "parallel_tool_calls",
+        "reasoning",
+        "store",
+        "stream",
+        "include",
+        "prompt_cache_key",
+        "text",
+        "client_metadata"
+      ],
+      "toolResults": [
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-342a-7783-9e59-69241aa638ef",
+          "call_id": "call_1",
+          "output": "unsupported call: exec_command"
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-342c-7831-bc69-883e356cc595",
+          "call_id": "call_2",
+          "output": "unsupported call: shell"
+        },
+        {
+          "type": "custom_tool_call_output",
+          "id": "ctco_01a0df67-3432-7643-81a1-ae83710ccfad",
+          "call_id": "call_3",
+          "output": "patch rejected: writing is blocked by read-only sandbox; rejected by user approval settings"
+        }
+      ]
+    },
+    {
+      "path": "/v1/responses",
+      "model": "gpt-6-astra",
+      "tools": [],
+      "toolChoice": "auto",
+      "requestKeys": [
+        "model",
+        "input",
+        "tool_choice",
+        "parallel_tool_calls",
+        "reasoning",
+        "store",
+        "stream",
+        "include",
+        "prompt_cache_key",
+        "text",
+        "client_metadata"
+      ],
+      "toolResults": [
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-342a-7783-9e59-69241aa638ef",
+          "call_id": "call_1",
+          "output": "unsupported call: exec_command"
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-342c-7831-bc69-883e356cc595",
+          "call_id": "call_2",
+          "output": "unsupported call: shell"
+        },
+        {
+          "type": "custom_tool_call_output",
+          "id": "ctco_01a0df67-3432-7643-81a1-ae83710ccfad",
+          "call_id": "call_3",
+          "output": "patch rejected: writing is blocked by read-only sandbox; rejected by user approval settings"
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-3434-7dd1-9aed-7ddae6f88795",
+          "call_id": "call_4",
+          "output": "unsupported call: mcp__host__read_secret"
+        }
+      ]
+    },
+    {
+      "path": "/v1/responses",
+      "model": "gpt-6-astra",
+      "tools": [],
+      "toolChoice": "auto",
+      "requestKeys": [
+        "model",
+        "input",
+        "tool_choice",
+        "parallel_tool_calls",
+        "reasoning",
+        "store",
+        "stream",
+        "include",
+        "prompt_cache_key",
+        "text",
+        "client_metadata"
+      ],
+      "toolResults": [
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-342a-7783-9e59-69241aa638ef",
+          "call_id": "call_1",
+          "output": "unsupported call: exec_command"
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-342c-7831-bc69-883e356cc595",
+          "call_id": "call_2",
+          "output": "unsupported call: shell"
+        },
+        {
+          "type": "custom_tool_call_output",
+          "id": "ctco_01a0df67-3432-7643-81a1-ae83710ccfad",
+          "call_id": "call_3",
+          "output": "patch rejected: writing is blocked by read-only sandbox; rejected by user approval settings"
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-3434-7dd1-9aed-7ddae6f88795",
+          "call_id": "call_4",
+          "output": "unsupported call: mcp__host__read_secret"
+        },
+        {
+          "type": "function_call_output",
+          "id": "fco_01a0df67-3435-7c42-ba6e-c89212931129",
+          "call_id": "call_5",
+          "output": "unsupported call: spawn_agent"
+        }
+      ]
+    }
+  ],
+  "diagnosticOutput": "{\"type\":\"thread.started\",\"thread_id\":\"01a0df67-33aa-74f0-9762-4e9f150ddce0\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"error\",\"message\":\"`[features].use_legacy_landlock` is deprecated and will be removed soon. (Remove this setting to stop opting into the legacy Linux sandbox behavior.)\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_1\",\"type\":\"error\",\"message\":\"`[features].web_search_cached` is deprecated because web search is enabled by default. (Set `web_search` to `\\\"live\\\"`, `\\\"indexed\\\"`, `\\\"cached\\\"`, or `\\\"disabled\\\"` at the top level (or under a profile) in config.toml if you want to override it.)\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_2\",\"type\":\"error\",\"message\":\"`[features].web_search_request` is deprecated because web search is enabled by default. (Set `web_search` to `\\\"live\\\"`, `\\\"indexed\\\"`, `\\\"cached\\\"`, or `\\\"disabled\\\"` at the top level (or under a profile) in config.toml if you want to override it.)\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_3\",\"type\":\"error\",\"message\":\"Code Mode is unavailable because code-mode host is disabled. Code mode will fail closed; enable `features.code_mode_host` and install `codex-code-mode-host`.\"}}\n{\"type\":\"turn.started\"}\n2026-09-26T20:27:57.865792Z ERROR codex_core::tools::router: error=unsupported call: exec_command\n2026-09-26T20:27:57.868857Z ERROR codex_core::tools::router: error=unsupported call: shell\n2026-09-26T20:27:57.874579Z ERROR codex_core::tools::router: error=patch rejected: writing is blocked by read-only sandbox; rejected by user approval settings\n2026-09-26T20:27:57.876522Z ERROR codex_core::tools::router: error=unsupported call: mcp__host__read_secret\n2026-09-26T20:27:57.877946Z ERROR codex_core::tools::router: error=unsupported call: spawn_agent\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_4\",\"type\":\"agent_message\",\"text\":\"{\\\"probe\\\":\\\"recorded\\\"}\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":0,\"cached_input_tokens\":0,\"cache_write_input_tokens\":0,\"output_tokens\":0,\"reasoning_output_tokens\":0}}\n",
+  "canaryWritten": false,
+  "modelCalls": 0,
+  "isolationEstablished": false
+}

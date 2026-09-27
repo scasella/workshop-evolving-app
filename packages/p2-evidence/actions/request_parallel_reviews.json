@@ -1,0 +1,346 @@
+{
+  "id": "request_parallel_reviews",
+  "title": "Cover every candidate, then run two independent reviews in parallel",
+  "inputs": {
+    "key": {
+      "type": "string",
+      "max": 50
+    },
+    "decision": {
+      "type": "string",
+      "max": 80
+    }
+  },
+  "let": [
+    {
+      "name": "d",
+      "value": {
+        "decision": {
+          "input": "decision"
+        }
+      }
+    },
+    {
+      "name": "candidates",
+      "value": {
+        "filter": {
+          "list": {
+            "records": "alternative"
+          },
+          "as": "a",
+          "where": {
+            "eq": [
+              {
+                "get": [
+                  {
+                    "var": "a"
+                  },
+                  "status"
+                ]
+              },
+              {
+                "lit": "candidate"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "measured_ids",
+      "value": {
+        "map": {
+          "list": {
+            "filter": {
+              "list": {
+                "records": "evidence"
+              },
+              "as": "e",
+              "where": {
+                "eq": [
+                  {
+                    "get": [
+                      {
+                        "var": "e"
+                      },
+                      "basis"
+                    ]
+                  },
+                  {
+                    "lit": "measured"
+                  }
+                ]
+              }
+            }
+          },
+          "as": "e",
+          "to": {
+            "get": [
+              {
+                "var": "e"
+              },
+              "id"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "subjects",
+      "value": {
+        "union": [
+          {
+            "map": {
+              "list": {
+                "var": "candidates"
+              },
+              "as": "a",
+              "to": {
+                "get": [
+                  {
+                    "var": "a"
+                  },
+                  "id"
+                ]
+              }
+            }
+          },
+          {
+            "var": "measured_ids"
+          }
+        ]
+      }
+    },
+    {
+      "name": "candidate_ids",
+      "value": {
+        "map": {
+          "list": {
+            "var": "candidates"
+          },
+          "as": "a",
+          "to": {
+            "get": [
+              {
+                "var": "a"
+              },
+              "id"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "requires": [
+    {
+      "when": {
+        "exists": {
+          "var": "d"
+        }
+      },
+      "reason": "Start the decision first."
+    },
+    {
+      "when": {
+        "ge": [
+          {
+            "len": {
+              "var": "candidates"
+            }
+          },
+          {
+            "lit": 3
+          }
+        ]
+      },
+      "reason": "Compare at least three candidate options."
+    },
+    {
+      "when": {
+        "all": {
+          "list": {
+            "var": "candidates"
+          },
+          "as": "a",
+          "where": {
+            "any": {
+              "list": {
+                "related": {
+                  "relation": "supports",
+                  "to": {
+                    "get": [
+                      {
+                        "var": "a"
+                      },
+                      "id"
+                    ]
+                  }
+                }
+              },
+              "as": "s",
+              "where": {
+                "in": [
+                  {
+                    "get": [
+                      {
+                        "var": "s"
+                      },
+                      "from"
+                    ]
+                  },
+                  {
+                    "var": "measured_ids"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "reason": "Every candidate needs at least one measured result, not only assumptions."
+    }
+  ],
+  "effects": [
+    {
+      "decision": {
+        "id": {
+          "input": "decision"
+        },
+        "question": {
+          "get": [
+            {
+              "var": "d"
+            },
+            "question"
+          ]
+        },
+        "subjects": {
+          "var": "candidate_ids"
+        },
+        "choice": {
+          "lit": null
+        }
+      }
+    },
+    {
+      "obligation": {
+        "key": {
+          "concat": [
+            {
+              "input": "key"
+            },
+            {
+              "lit": "-method"
+            }
+          ]
+        },
+        "title": {
+          "concat": [
+            {
+              "lit": "Methodology review: "
+            },
+            {
+              "get": [
+                {
+                  "var": "d"
+                },
+                "question"
+              ]
+            }
+          ]
+        },
+        "subjects": {
+          "var": "subjects"
+        },
+        "gate": {
+          "input": "decision"
+        },
+        "verdicts": [
+          "approve"
+        ],
+        "discharge": "job",
+        "independent": true,
+        "continuation": "record_review"
+      }
+    },
+    {
+      "task": {
+        "kind": "review",
+        "obligation": {
+          "concat": [
+            {
+              "lit": "ob-"
+            },
+            {
+              "input": "key"
+            },
+            {
+              "lit": "-method"
+            }
+          ]
+        },
+        "prompt": "review_methodology"
+      }
+    },
+    {
+      "obligation": {
+        "key": {
+          "concat": [
+            {
+              "input": "key"
+            },
+            {
+              "lit": "-risk"
+            }
+          ]
+        },
+        "title": {
+          "concat": [
+            {
+              "lit": "Risk review: "
+            },
+            {
+              "get": [
+                {
+                  "var": "d"
+                },
+                "question"
+              ]
+            }
+          ]
+        },
+        "subjects": {
+          "var": "subjects"
+        },
+        "gate": {
+          "input": "decision"
+        },
+        "verdicts": [
+          "approve"
+        ],
+        "discharge": "job",
+        "independent": true,
+        "continuation": "record_review"
+      }
+    },
+    {
+      "task": {
+        "kind": "review",
+        "obligation": {
+          "concat": [
+            {
+              "lit": "ob-"
+            },
+            {
+              "input": "key"
+            },
+            {
+              "lit": "-risk"
+            }
+          ]
+        },
+        "prompt": "review_risk"
+      }
+    }
+  ]
+}

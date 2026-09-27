@@ -1,0 +1,25 @@
+{
+  "observedAt": "2026-09-26T21:55:51.751Z",
+  "emulation": {
+    "registration": "user-approved; installing amd64 OK",
+    "architecture": "linux/x64",
+    "dockerRestarted": false,
+    "existingContainer": "an unrelated existing container retained"
+  },
+  "live": {
+    "operationId": "live-1790459598257",
+    "originalEvidence": "evidence/live-1790459598257.json",
+    "currentState": "uncertain",
+    "allowance": {
+      "allowance": 1,
+      "used": 1
+    },
+    "acceptedProposal": false,
+    "providerGeneration": "unknown",
+    "providerUsage": "unknown",
+    "automaticRetry": false,
+    "reason": "Response failed the SSE-format check; initial receipt did not retain its content type. Diagnostics fixed for future attempts."
+  },
+  "initialAutoReview": "Rejected before launch; exact synthetic request then staged and inspected; same action accepted on reconsideration.",
+  "remainingGate": "Successful live authoring not demonstrated"
+}

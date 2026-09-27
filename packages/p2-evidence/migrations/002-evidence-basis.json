@@ -1,0 +1,2 @@
+{ "steps": [ { "backfill": { "type": "evidence", "field": "basis",
+  "value": { "if": [ { "eq": [ { "get": [ { "var": "record" }, "kind" ] }, { "lit": "measurement" } ] }, { "lit": "measured" }, { "lit": "assumed" } ] } } } ] }

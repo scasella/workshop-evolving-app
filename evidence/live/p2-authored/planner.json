@@ -1,0 +1,29 @@
+{
+  "rules": [
+    {
+      "id": "add_third_alternative",
+      "when": {"lt": [{"len": {"records": "alternative"}}, {"lit": 3}]},
+      "suggest": {"action": "add_alternative", "label": "Add another option to compare at least three alternatives", "input": {}}
+    },
+    {
+      "id": "suggest_parallel_reviews",
+      "when": {"and": [
+        {"ge": [{"len": {"records": "alternative"}}, {"lit": 3}]},
+        {"eq": [{"len": {"obligations": {"status": ["open"]}}}, {"lit": 0}]},
+        {"all": {
+          "list": {"records": "alternative"},
+          "as": "a",
+          "where": {"any": {
+            "list": {"records": "evidence"},
+            "as": "e",
+            "where": {"and": [
+              {"eq": [{"get": [{"var": "e"}, "basis"]}, {"lit": "measured"}]},
+              {"gt": [{"len": {"related": {"relation": "alternative_evidence", "from": {"get": [{"var": "a"}, "id"]}, "to": {"get": [{"var": "e"}, "id"]}}}}, {"lit": 0}]}
+            ]}
+          }}
+        }}
+      ]},
+      "suggest": {"action": "request_parallel_reviews", "label": "Request independent methodology and risk reviews in parallel", "input": {}}
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{ "id": "eliminate", "title": "Eliminate an alternative",
+  "inputs": { "id": { "type": "string", "max": 80 } },
+  "requires": [ { "when": { "eq": [ { "get": [ { "record": { "input": "id" } }, "type" ] }, { "lit": "alternative" } ] }, "reason": "Choose an existing alternative." } ],
+  "effects": [ { "update": { "type": "alternative", "id": { "input": "id" }, "fields": { "status": { "lit": "eliminated" } } } } ] }

@@ -1,0 +1,22 @@
+{
+  "rules": [
+    {
+      "id": "add_second_alternative",
+      "when": {"lt": [{"len": {"records": "alternative"}}, {"lit": 2}]},
+      "suggest": {"action": "add_alternative", "label": "Add another alternative to compare", "input": {}}
+    },
+    {
+      "id": "require_review",
+      "when": {"and": [{"ge": [{"len": {"records": "alternative"}}, {"lit": 2}]}, {"eq": [{"len": {"obligations": {}}}, {"lit": 0}]}]},
+      "suggest": {"action": "request_review", "label": "Require a review before deciding", "input": {}}
+    },
+    {
+      "id": "suggest_comparison_review",
+      "when": {"and": [
+        {"ge": [{"len": {"records": "alternative"}}, {"lit": 2}]},
+        {"all": {"list": {"records": "alternative"}, "as": "a", "where": {"gt": [{"len": {"related": {"relation": "alternative_evidence", "from": {"get": [{"var": "a"}, "id"]}}}}, {"lit": 0}]}}}
+      ]},
+      "suggest": {"action": "request_comparison_review", "label": "Request a comparison review after completing all scores", "input": {}}
+    }
+  ]
+}

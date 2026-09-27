@@ -1,0 +1,6 @@
+{ "id": "request_review", "title": "Require an owner review before deciding",
+  "inputs": { "key": { "type": "string", "max": 60 }, "decision": { "type": "string", "max": 80 } },
+  "let": [ { "name": "d", "value": { "decision": { "input": "decision" } } } ],
+  "requires": [ { "when": { "exists": { "var": "d" } }, "reason": "Start the decision first." } ],
+  "effects": [ { "obligation": { "key": { "input": "key" }, "title": { "concat": [ { "lit": "Review: " }, { "get": [ { "var": "d" }, "question" ] } ] },
+    "subjects": { "get": [ { "var": "d" }, "subjects" ] }, "gate": { "input": "decision" }, "verdicts": [ "approve" ], "discharge": "owner", "continuation": "record_review" } } ] }

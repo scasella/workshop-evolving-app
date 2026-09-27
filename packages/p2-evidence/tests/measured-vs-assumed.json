@@ -1,0 +1,7 @@
+{ "id": "measured_vs_assumed", "title": "Assumptions and unmeasured evidence are listed apart from measured results",
+  "steps": [
+    { "action": "add_alternative", "input": { "id": "pkgtest-alt", "title": "Package test option" }, "expect": "committed" },
+    { "action": "attach_evidence", "input": { "id": "pkgtest-ev", "alternative": "pkgtest-alt", "title": "Package test guess", "kind": "observation", "stance": "for" }, "expect": "committed" },
+    { "view": "assumptions", "contains": "Package test guess — Package test option (unmeasured evidence)" },
+    { "planner": "needs_measurement", "present": true }
+  ] }

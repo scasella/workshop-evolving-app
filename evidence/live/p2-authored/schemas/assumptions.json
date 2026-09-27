@@ -1,0 +1,15 @@
+{
+  "types": [
+    {
+      "id": "assumption",
+      "title": "Assumption",
+      "fields": {
+        "statement": {"type": "string", "max": 4000, "default": "", "semantic": "assumption/statement"},
+        "confidence": {"type": "int", "min": 1, "max": 5, "default": 1, "semantic": "assumption/confidence"}
+      }
+    }
+  ],
+  "relations": [
+    {"id": "alternative_assumption", "title": "Alternative assumption", "from": "alternative", "to": "assumption", "fields": {}}
+  ]
+}

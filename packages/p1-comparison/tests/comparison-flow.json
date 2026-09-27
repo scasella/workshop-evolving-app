@@ -1,0 +1,36 @@
+{
+  "id": "comparison_flow",
+  "title": "Criteria appear in the matrix; guarded actions refuse bad input",
+  "steps": [
+    {
+      "action": "add_criterion",
+      "input": {
+        "id": "pkgtest-crit",
+        "title": "Package test criterion",
+        "weight": 2
+      },
+      "expect": "committed"
+    },
+    {
+      "view": "comparison",
+      "contains": "Package test criterion (\u00d72)"
+    },
+    {
+      "action": "score",
+      "input": {
+        "alternative": "pkgtest-missing",
+        "criterion": "pkgtest-crit",
+        "score": 5
+      },
+      "expect": "rejected",
+      "reason": "Choose an existing alternative"
+    },
+    {
+      "finalize": {
+        "decision": "pkgtest-no-decision",
+        "choice": "x"
+      },
+      "expect": "rejected"
+    }
+  ]
+}

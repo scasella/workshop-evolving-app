@@ -1,0 +1,39 @@
+{
+  "types": [
+    {
+      "id": "criterion",
+      "title": "Criterion",
+      "fields": {
+        "title": {"type": "string", "max": 200, "default": "", "semantic": "criterion/title"},
+        "weight": {"type": "int", "min": 1, "max": 5, "default": 1, "semantic": "criterion/weight"}
+      }
+    },
+    {
+      "id": "evidence",
+      "title": "Evidence",
+      "fields": {
+        "title": {"type": "string", "max": 200, "default": "", "semantic": "evidence/title"},
+        "kind": {"type": "enum", "values": ["measurement", "citation", "observation"], "default": "observation", "semantic": "evidence/kind"},
+        "stance": {"type": "enum", "values": ["for", "against"], "default": "for", "semantic": "evidence/stance"}
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "criterion_score",
+      "title": "Criterion score",
+      "from": "alternative",
+      "to": "criterion",
+      "fields": {
+        "score": {"type": "int", "min": 0, "max": 10, "default": 0, "semantic": "criterion_score/score"}
+      }
+    },
+    {
+      "id": "alternative_evidence",
+      "title": "Supporting or opposing evidence",
+      "from": "alternative",
+      "to": "evidence",
+      "fields": {}
+    }
+  ]
+}

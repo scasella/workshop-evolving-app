@@ -1,0 +1,2 @@
+• P0: live Codex review job (bounded, charged) {"results":[{"task":"task-ob-ai-early-6","outcome":"failed","detail":["Cannot read properties of undefined (reading 'slice')"]}],"peakConcurrency":1,"reviewer":"codex"}
+• Host restarted; committed review not rerun {"rerun":0,"pending":["ob-ai-early","ob-r17"]}

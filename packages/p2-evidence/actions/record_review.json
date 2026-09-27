@@ -1,0 +1,4 @@
+{ "id": "record_review", "title": "Record a review",
+  "inputs": { "obligation": { "type": "string", "max": 120 }, "verdict": { "type": "enum", "values": [ "approve", "changes_requested" ] }, "note": { "type": "string", "max": 4000 },
+    "artifact": { "type": "artifact", "optional": true } },
+  "effects": [ { "evidence": { "obligation": { "input": "obligation" }, "verdict": { "input": "verdict" }, "note": { "input": "note" }, "artifact": { "input": "artifact" } } } ] }

@@ -1,0 +1,5 @@
+{ "id": "start_decision", "title": "Start a decision between the alternatives",
+  "inputs": { "id": { "type": "string", "max": 80 }, "question": { "type": "string", "max": 500 } },
+  "let": [ { "name": "alts", "value": { "map": { "list": { "records": "alternative" }, "as": "a", "to": { "get": [ { "var": "a" }, "id" ] } } } } ],
+  "requires": [ { "when": { "ge": [ { "len": { "var": "alts" } }, { "lit": 2 } ] }, "reason": "A decision needs at least two alternatives." } ],
+  "effects": [ { "decision": { "id": { "input": "id" }, "question": { "input": "question" }, "subjects": { "var": "alts" }, "choice": { "lit": null } } } ] }

@@ -1,0 +1,12 @@
+{
+  "id": "assumptions",
+  "title": "Assumptions",
+  "kind": "table",
+  "empty": "No explicit assumptions recorded.",
+  "rows": {"records": "assumption"},
+  "columns": [
+    {"label": "Statement", "value": {"get": [{"var": "row"}, "statement"]}},
+    {"label": "Confidence (1–5)", "value": {"get": [{"var": "row"}, "confidence"]}},
+    {"label": "Alternative", "value": {"map": {"list": {"filter": {"list": {"records": "alternative"}, "as": "a", "where": {"gt": [{"len": {"related": {"relation": "alternative_assumption", "from": {"get": [{"var": "a"}, "id"]}, "to": {"get": [{"var": "row"}, "id"]}}}}, {"lit": 0}]}}}, "as": "a", "to": {"get": [{"var": "a"}, "title"]}}}}
+  ]
+}

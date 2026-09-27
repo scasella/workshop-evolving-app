@@ -1,0 +1,42 @@
+{
+  "observedAt": "2026-09-27T03:15:31.925Z",
+  "scope": "R03: meaningful checker change under a fixed contract",
+  "change": "Replaced boolean witness check + separate rebind pass with a typed per-obligation Witness (adapted | pinned | missing reason) reconciled in one fold; rejections now name the specific failing condition.",
+  "contract": {
+    "v1": "a8ab2b4aa824c41494a729df33b0e184bc15ae0312fa239ec4fdb2fad4a37e7f",
+    "v2": "a8ab2b4aa824c41494a729df33b0e184bc15ae0312fa239ec4fdb2fad4a37e7f",
+    "identical": true
+  },
+  "checkerSource": {
+    "v1": "4eaff981b4d6322ab4708ea001319e9556c100134485427246869373d69848fe",
+    "v2": "d41738d35f6145fce4b430e7784d2512fe6bcf3eb0b80772bcf41cb73b84b51f",
+    "changed": true
+  },
+  "binary": {
+    "v1": "3af55f849f6a32c44307f4eb93fc5cd11241d7c0e1307e3eb48cb38fb144836a",
+    "v2": "4d3f1544a00ed015afb4404006e61ffa86ef2da3640c36881f9bf5e42af80a69"
+  },
+  "theoremsV1": [
+    "Workshop.preservation",
+    "Workshop.no_retired_continuation",
+    "Workshop.rebinds_sound",
+    "Workshop.keeps_identity_and_rule",
+    "Workshop.owner_approval",
+    "Workshop.stale_rejected",
+    "Workshop.dispositions_committed"
+  ],
+  "theoremsV2": [
+    "Workshop.preservation",
+    "Workshop.no_retired_continuation",
+    "Workshop.rebinds_sound",
+    "Workshop.keeps_identity_and_rule",
+    "Workshop.owner_approval",
+    "Workshop.stale_rejected",
+    "Workshop.dispositions_committed"
+  ],
+  "checkLeanLines": {
+    "v1": 66,
+    "v2": 81
+  },
+  "fixtureAgreement": "test/r-checker.test.ts passes against v2 (15 scenarios, verdict + exact rebinds, JSON round trip)"
+}

@@ -1,0 +1,36 @@
+{
+  "observedAt": "2026-09-27T12:12:56.954Z",
+  "scenario": "P25 export, move, disconnect, start fresh",
+  "image": "node:25.8.1-bookworm-slim@sha256:44bcbf493408a824104e74976ae5539f596c46cbe75ed0423a137552a555e2de",
+  "platform": "linux/amd64 (QEMU emulation on an arm64 Docker VM)",
+  "network": "none",
+  "hostNodeRemoved": true,
+  "bundlePathInContainer": "/opt/moved-export (source was a host temp directory)",
+  "runtime": {
+    "sha256": "b1d316a8ae095c4f4c159bb906bdd3e6a0ed6f7026a7a75dd00898f2cef24e41",
+    "licenseSha256": "d94dd7496d4de9cd130f1eb6e661e43422483663fd48cf3a450d244b9cda6fdc"
+  },
+  "manifest": {
+    "packages": 2,
+    "artifacts": 1,
+    "files": 2227,
+    "policyId": "a98260f6cfbcde0a13d1b11dc9f5114b84fab12461cd2c7843da36cb07b68bcd"
+  },
+  "verify": true,
+  "recoveryCli": true,
+  "reExportOffline": true,
+  "shell": {
+    "loginStatus": 303,
+    "project": true,
+    "openReview": true,
+    "comparisonView": true,
+    "recovery": true,
+    "postStatus": 303,
+    "offlineEdit": true,
+    "externalNetwork": "denied",
+    "changePageWithoutCodex": true
+  },
+  "exitCode": 0,
+  "seconds": 16,
+  "stderr": "Imported copy: new instance bbb608b6; 0 agent job(s) paused, 0 approval(s) require a fresh preview.\n"
+}

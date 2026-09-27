@@ -1,0 +1,72 @@
+{
+  "id": "request_parallel_reviews",
+  "title": "Request parallel independent reviews",
+  "inputs": {
+    "key": {"type": "string", "max": 60},
+    "decision": {"type": "string", "max": 80}
+  },
+  "let": [
+    {"name": "d", "value": {"decision": {"input": "decision"}}},
+    {"name": "alternatives", "value": {"records": "alternative"}},
+    {"name": "alternative_ids", "value": {"map": {"list": {"var": "alternatives"}, "as": "a", "to": {"get": [{"var": "a"}, "id"]}}}},
+    {"name": "method_key", "value": {"concat": [{"input": "key"}, {"lit": "-method"}]}},
+    {"name": "risk_key", "value": {"concat": [{"input": "key"}, {"lit": "-risk"}]}}
+  ],
+  "requires": [
+    {"when": {"exists": {"var": "d"}}, "reason": "Start the decision first."},
+    {"when": {"ge": [{"len": {"var": "alternatives"}}, {"lit": 3}]}, "reason": "Add at least three alternatives before requesting parallel reviews."},
+    {"when": {"all": {
+      "list": {"var": "alternatives"},
+      "as": "a",
+      "where": {"any": {
+        "list": {"records": "evidence"},
+        "as": "e",
+        "where": {"and": [
+          {"eq": [{"get": [{"var": "e"}, "basis"]}, {"lit": "measured"}]},
+          {"gt": [{"len": {"related": {"relation": "alternative_evidence", "from": {"get": [{"var": "a"}, "id"]}, "to": {"get": [{"var": "e"}, "id"]}}}}, {"lit": 0}]}
+        ]}
+      }}
+    }}, "reason": "Attach at least one measured result to every alternative."},
+    {"when": {"not": {"any": {
+      "list": {"obligations": {}},
+      "as": "o",
+      "where": {"in": [
+        {"get": [{"var": "o"}, "id"]},
+        {"list": [
+          {"concat": [{"lit": "ob-"}, {"var": "method_key"}]},
+          {"concat": [{"lit": "ob-"}, {"var": "risk_key"}]}
+        ]}
+      ]}
+    }}}, "reason": "Use a new key for both reviews."}
+  ],
+  "effects": [
+    {"decision": {
+      "id": {"input": "decision"},
+      "question": {"get": [{"var": "d"}, "question"]},
+      "subjects": {"var": "alternative_ids"},
+      "choice": {"lit": null}
+    }},
+    {"obligation": {
+      "key": {"var": "method_key"},
+      "title": {"concat": [{"lit": "Methodology review: "}, {"get": [{"var": "d"}, "question"]}]},
+      "subjects": {"var": "alternative_ids"},
+      "gate": {"input": "decision"},
+      "verdicts": ["approve"],
+      "discharge": "job",
+      "independent": true,
+      "continuation": "record_review"
+    }},
+    {"task": {"kind": "review", "obligation": {"concat": [{"lit": "ob-"}, {"var": "method_key"}]}, "prompt": "review_methodology"}},
+    {"obligation": {
+      "key": {"var": "risk_key"},
+      "title": {"concat": [{"lit": "Risk review: "}, {"get": [{"var": "d"}, "question"]}]},
+      "subjects": {"var": "alternative_ids"},
+      "gate": {"input": "decision"},
+      "verdicts": ["approve"],
+      "discharge": "job",
+      "independent": true,
+      "continuation": "record_review"
+    }},
+    {"task": {"kind": "review", "obligation": {"concat": [{"lit": "ob-"}, {"var": "risk_key"}]}, "prompt": "review_risk"}}
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "mode": "staged-only-not-sent",
+  "destination": "https://chatgpt.com/backend-api/codex/responses",
+  "allowance": 1,
+  "model": "gpt-6-astra",
+  "promptHash": "acdfad6a22e8b3d4d9cf44dc259738ff15aa18f0b71a34cb5c13c1483c23061c",
+  "credentialHandling": "Existing Codex login used only in HTTPS headers on the host; credentials excluded from this file and from the container.",
+  "body": {
+    "model": "gpt-6-astra",
+    "input": [
+      {
+        "type": "message",
+        "id": "msg_ad5c6fe8-6d5a-5249-aa8e-505d21ceead7",
+        "role": "developer",
+        "content": [
+          {
+            "type": "input_text",
+            "text": {
+              "redacted": "third-party CLI instruction text",
+              "length": 21261,
+              "sha256": "152dfaeeb552876190962be1c12c93d426840ff12691f648261554a7675a6698"
+            }
+          }
+        ]
+      },
+      {
+        "type": "message",
+        "id": "msg_01a0dfb3-93c1-7aa1-a5f7-4430be96ffeb",
+        "role": "developer",
+        "content": [
+          {
+            "type": "input_text",
+            "text": {
+              "redacted": "third-party CLI instruction text",
+              "length": 2473,
+              "sha256": "18123aa2b9f234f75e6106743dea970957fa4fa9afea8cd3125117a8a23ba2ef"
+            }
+          },
+          {
+            "type": "input_text",
+            "text": {
+              "redacted": "third-party CLI instruction text",
+              "length": 341,
+              "sha256": "29dad5ed6993c5e717376e0a1c84d54ab60ee593510916ac6cee4295e803315d"
+            }
+          },
+          {
+            "type": "input_text",
+            "text": {
+              "redacted": "third-party CLI instruction text",
+              "length": 1328,
+              "sha256": "d4a43ed616564dc0173826b5cdc0b92261da2e33fd5b5ceeeefb9d7aa6fc3350"
+            }
+          }
+        ]
+      },
+      {
+        "type": "message",
+        "id": "msg_01a0dfb3-93c1-7aa1-a5f7-444eb8ac86d1",
+        "role": "developer",
+        "content": [
+          {
+            "type": "input_text",
+            "text": {
+              "redacted": "third-party CLI instruction text",
+              "length": 2429,
+              "sha256": "47091490938505958b0c22ff42db6fd79b272a2af6923166f4c2cc53c4fe0df4"
+            }
+          }
+        ]
+      },
+      {
+        "type": "message",
+        "id": "msg_01a0dfb3-93c1-7aa1-a5f7-4459bb78dba7",
+        "role": "developer",
+        "content": [
+          {
+            "type": "input_text",
+            "text": {
+              "redacted": "third-party CLI instruction text",
+              "length": 271,
+              "sha256": "6ded806e3cdbb35599ecaf8742574bc5274908472b1729090010c404c2151e8e"
+            }
+          }
+        ]
+      },
+      {
+        "type": "message",
+        "id": "msg_01a0dfb3-93c1-7aa1-a5f7-44607583b47a",
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": {
+              "redacted": "third-party CLI instruction text",
+              "length": 403,
+              "sha256": "b0061e0efcb3fb37b4539cef6af26c1cfe350d7c94027841b98295b4c4494fc9"
+            }
+          }
+        ]
+      },
+      {
+        "type": "message",
+        "id": "msg_01a0dfb3-93d8-7600-9ad7-d302336d2204",
+        "role": "user",
+        "content": [
+          {
+            "type": "input_text",
+            "text": {
+              "redacted": "third-party CLI instruction text",
+              "length": 818,
+              "sha256": "acdfad6a22e8b3d4d9cf44dc259738ff15aa18f0b71a34cb5c13c1483c23061c"
+            }
+          }
+        ]
+      }
+    ],
+    "tool_choice": "none",
+    "parallel_tool_calls": false,
+    "reasoning": {
+      "effort": "low",
+      "context": "all_turns"
+    },
+    "store": false,
+    "stream": true,
+    "include": [
+      "reasoning.encrypted_content"
+    ],
+    "prompt_cache_key": "<redacted>",
+    "text": {
+      "verbosity": "low",
+      "format": {
+        "type": "json_schema",
+        "strict": true,
+        "schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "files"
+          ],
+          "properties": {
+            "files": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 32,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "content"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "name": "codex_output_schema"
+      }
+    },
+    "client_metadata": "<redacted>",
+    "tools": [],
+    "instructions": ""
+  }
+}

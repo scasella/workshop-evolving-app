@@ -1,0 +1,19 @@
+{ "id": "request_comparison_review", "title": "Require review of the completed comparison",
+  "inputs": { "key": { "type": "string", "max": 60 }, "decision": { "type": "string", "max": 80 } },
+  "let": [
+    { "name": "d", "value": { "decision": { "input": "decision" } } },
+    { "name": "candidates", "value": { "filter": { "list": { "records": "alternative" }, "as": "a", "where": { "eq": [ { "get": [ { "var": "a" }, "status" ] }, { "lit": "candidate" } ] } } } },
+    { "name": "criteria", "value": { "records": "criterion" } },
+    { "name": "evidence_ids", "value": { "unique": { "map": { "list": { "related": { "relation": "supports" } }, "as": "s", "to": { "get": [ { "var": "s" }, "from" ] } } } } }
+  ],
+  "requires": [
+    { "when": { "exists": { "var": "d" } }, "reason": "Start the decision first." },
+    { "when": { "ge": [ { "len": { "var": "criteria" } }, { "lit": 1 } ] }, "reason": "Add at least one criterion." },
+    { "when": { "all": { "list": { "var": "candidates" }, "as": "a", "where": { "all": { "list": { "var": "criteria" }, "as": "c", "where":
+        { "eq": [ { "len": { "related": { "relation": "scores", "from": { "get": [ { "var": "a" }, "id" ] }, "to": { "get": [ { "var": "c" }, "id" ] } } } }, { "lit": 1 } ] } } } } },
+      "reason": "Score every candidate against every criterion before requesting review." },
+    { "when": { "all": { "list": { "var": "candidates" }, "as": "a", "where": { "ge": [ { "len": { "related": { "relation": "supports", "to": { "get": [ { "var": "a" }, "id" ] } } } }, { "lit": 1 } ] } } },
+      "reason": "Attach at least one piece of evidence to every candidate." }
+  ],
+  "effects": [ { "obligation": { "key": { "input": "key" }, "title": { "concat": [ { "lit": "Comparison review: " }, { "get": [ { "var": "d" }, "question" ] } ] },
+    "subjects": { "union": [ { "map": { "list": { "var": "candidates" }, "as": "a", "to": { "get": [ { "var": "a" }, "id" ] } } }, { "var": "evidence_ids" } ] }, "gate": { "input": "decision" }, "verdicts": [ "approve" ], "discharge": "owner", "continuation": "record_review" } } ] }

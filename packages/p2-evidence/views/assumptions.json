@@ -1,0 +1,6 @@
+{ "id": "assumptions", "title": "Assumptions (not measured)", "kind": "table", "empty": "No assumptions recorded.",
+  "rows": { "union": [
+    { "map": { "list": { "related": { "relation": "assumes" } }, "as": "r", "to": { "concat": [ { "get": [ { "record": { "get": [ { "var": "r" }, "from" ] } }, "statement" ] }, { "lit": " — " }, { "get": [ { "record": { "get": [ { "var": "r" }, "to" ] } }, "title" ] }, { "lit": " (confidence " }, { "get": [ { "record": { "get": [ { "var": "r" }, "from" ] } }, "confidence" ] }, { "lit": "/5)" } ] } } },
+    { "map": { "list": { "filter": { "list": { "related": { "relation": "supports" } }, "as": "s", "where": { "ne": [ { "get": [ { "record": { "get": [ { "var": "s" }, "from" ] } }, "basis" ] }, { "lit": "measured" } ] } } }, "as": "s",
+      "to": { "concat": [ { "get": [ { "record": { "get": [ { "var": "s" }, "from" ] } }, "title" ] }, { "lit": " — " }, { "get": [ { "record": { "get": [ { "var": "s" }, "to" ] } }, "title" ] }, { "lit": " (unmeasured evidence)" } ] } } } ] },
+  "columns": [ { "label": "Assumption", "value": { "var": "row" } } ] }

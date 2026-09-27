@@ -1,0 +1,12 @@
+{
+  "types": [
+    { "id": "note", "title": "Note", "fields": {
+      "title": { "type": "string", "max": 200, "semantic": "note/title" },
+      "body": { "type": "string", "max": 4000, "optional": true, "semantic": "note/body" } } },
+    { "id": "alternative", "title": "Alternative", "fields": {
+      "title": { "type": "string", "max": 200, "semantic": "alternative/title" },
+      "summary": { "type": "string", "max": 2000, "default": "", "semantic": "alternative/summary" },
+      "status": { "type": "enum", "values": [ "candidate", "eliminated" ], "default": "candidate", "semantic": "alternative/status" },
+      "origin": { "type": "enum", "values": [ "notebook", "comparison" ], "optional": true, "semantic": "alternative/origin" } } }
+  ]
+}

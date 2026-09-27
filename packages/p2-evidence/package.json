@@ -1,0 +1,62 @@
+{
+  "name": "evidence",
+  "version": 3,
+  "language": "workshop-lang/1",
+  "parent": null,
+  "interpreters": [
+    "workshop-lang/1"
+  ],
+  "files": [
+    "actions/add_alternative.json",
+    "actions/add_assumption.json",
+    "actions/add_criterion.json",
+    "actions/add_note.json",
+    "actions/attach_evidence.json",
+    "actions/classify_evidence.json",
+    "actions/edit_alternative.json",
+    "actions/eliminate.json",
+    "actions/record_review.json",
+    "actions/request_ai_review.json",
+    "actions/request_comparison_review.json",
+    "actions/request_parallel_reviews.json",
+    "actions/request_review.json",
+    "actions/score.json",
+    "actions/start_decision.json",
+    "migrations/002-evidence-basis.json",
+    "planner.json",
+    "prompts/review.md",
+    "prompts/review_methodology.md",
+    "prompts/review_risk.md",
+    "schemas/comparison.json",
+    "schemas/notebook.json",
+    "tests/measured-vs-assumed.json",
+    "views/alternatives.json",
+    "views/assumptions.json",
+    "views/comparison.json",
+    "views/evidence.json",
+    "views/measured.json",
+    "views/notes.json",
+    "views/review_status.json",
+    "views/reviews.json",
+    "views/totals.json"
+  ],
+  "capabilities": [
+    "records.write",
+    "relations.write",
+    "obligations.open",
+    "evidence.submit",
+    "tasks.review",
+    "decisions.draft"
+  ],
+  "migration": "migrations/002-evidence-basis.json",
+  "views": [
+    "review_status",
+    "comparison",
+    "measured",
+    "assumptions",
+    "totals",
+    "alternatives",
+    "reviews",
+    "notes"
+  ]
+}

@@ -1,0 +1,3 @@
+{ "id": "alternatives", "title": "Alternatives", "kind": "table", "empty": "Add at least two alternatives.",
+  "rows": { "records": "alternative" },
+  "columns": [ { "label": "Alternative", "value": { "get": [ { "var": "row" }, "title" ] } }, { "label": "Summary", "value": { "get": [ { "var": "row" }, "summary" ] } } ] }

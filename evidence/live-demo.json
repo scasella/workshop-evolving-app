@@ -1,0 +1,465 @@
+{
+  "kind": "LIVE demonstration: real Codex calls via local codex exec (owner-authorized); authored packages are model output",
+  "model": "gpt-6-astra",
+  "status": "completed",
+  "allowance": {
+    "total": 10,
+    "used": 7
+  },
+  "hostDir": "<workspace>/.workshop/live-host",
+  "steps": [
+    {
+      "at": "2026-09-27T03:28:53.069Z",
+      "step": "P0: live Codex review job (bounded, charged)",
+      "data": {
+        "results": [
+          {
+            "task": "task-ob-ai-early-6",
+            "outcome": "committed",
+            "detail": []
+          }
+        ],
+        "peakConcurrency": 1,
+        "reviewer": "codex"
+      }
+    },
+    {
+      "at": "2026-09-27T03:28:53.075Z",
+      "step": "Host restarted; committed review not rerun",
+      "data": {
+        "rerun": 0,
+        "pending": [
+          "ob-ai-early",
+          "ob-r17"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-27T03:30:54.109Z",
+      "step": "P1 author attempt 1",
+      "data": {
+        "id": "p1-a1",
+        "seconds": 121,
+        "usage": {
+          "input_tokens": 14785,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3907,
+          "reasoning_output_tokens": 358
+        },
+        "output": [
+          "Expected ':' after property name in JSON at position 1787 (line 21 column 55)"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-27T03:32:52.574Z",
+      "step": "P1 author attempt 2",
+      "data": {
+        "id": "p1-a2",
+        "seconds": 118,
+        "usage": {
+          "input_tokens": 14819,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3805,
+          "reasoning_output_tokens": 190
+        },
+        "output": "9 file edit(s)"
+      }
+    },
+    {
+      "at": "2026-09-27T03:32:52.580Z",
+      "step": "P1 authoring finished",
+      "data": [
+        {
+          "id": "p1-a1",
+          "outcome": "invalid output",
+          "reasons": [
+            "Expected ':' after property name in JSON at position 1787 (line 21 column 55)"
+          ]
+        },
+        {
+          "id": "p1-a2",
+          "outcome": "previewable",
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "at": "2026-09-27T03:32:52.585Z",
+      "step": "Deliberately faulty variant (demo-injected retire) rejected",
+      "data": [
+        "This update retires package 41f59ff5d547, removing the continuation for review ob-ai-early (Agent review: Which storage engine should the ingest service use?)",
+        "This update retires package 41f59ff5d547, removing the continuation for review ob-r17 (Review: Which storage engine should the ingest service use?)"
+      ]
+    },
+    {
+      "at": "2026-09-27T03:32:52.588Z",
+      "step": "P1 applied after practice; r17 continued through its pinned P0 route",
+      "data": {
+        "practiceAction": "committed",
+        "practiceLeak": false,
+        "supplementalTests": [],
+        "views": [
+          "comparison",
+          "alternatives",
+          "evidence",
+          "notes",
+          "reviews"
+        ],
+        "r17": "open"
+      }
+    },
+    {
+      "at": "2026-09-27T03:32:52.592Z",
+      "step": "P1 domain work through the authored actions",
+      "data": {
+        "requestComparisonReview": {
+          "status": "committed",
+          "revision": 18,
+          "notes": []
+        },
+        "planner": {
+          "suggestions": [
+            {
+              "rule": "suggest_comparison_review",
+              "action": "request_comparison_review",
+              "label": "Request a comparison review after completing all scores",
+              "input": {}
+            }
+          ]
+        },
+        "pending": [
+          "ob-ai-early",
+          "ob-cmp",
+          "ob-r17"
+        ]
+      }
+    },
+    {
+      "at": "2026-09-27T03:35:33.467Z",
+      "step": "P2 author attempt 1",
+      "data": {
+        "id": "p2-a1",
+        "seconds": 161,
+        "usage": {
+          "input_tokens": 17404,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5227,
+          "reasoning_output_tokens": 89
+        },
+        "output": "14 file edit(s)"
+      }
+    },
+    {
+      "at": "2026-09-27T03:38:13.060Z",
+      "step": "P2 author attempt 2",
+      "data": {
+        "id": "p2-a2",
+        "seconds": 159,
+        "usage": {
+          "input_tokens": 21649,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5175,
+          "reasoning_output_tokens": 40
+        },
+        "output": "14 file edit(s)"
+      }
+    },
+    {
+      "at": "2026-09-27T03:38:13.067Z",
+      "step": "P2 authoring finished",
+      "data": [
+        {
+          "id": "p2-a1",
+          "outcome": "rejected by admission",
+          "reasons": [
+            "status: expected list of at most 5"
+          ]
+        },
+        {
+          "id": "p2-a2",
+          "outcome": "previewable",
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "at": "2026-09-27T03:38:13.076Z",
+      "step": "P2 applied: live review change during preview → stale → refreshed → applied",
+      "data": {
+        "stale": [
+          "The project changed after this preview (now revision 19, preview of 18); refresh it before applying"
+        ],
+        "basis": {
+          "ev1": "measured",
+          "ev2": "assumed"
+        }
+      }
+    },
+    {
+      "at": "2026-09-27T03:38:33.266Z",
+      "step": "Two independent live Codex reviews in parallel",
+      "data": {
+        "peakConcurrency": 2,
+        "results": [
+          {
+            "task": "task-ob-final-method-28",
+            "outcome": "committed",
+            "detail": []
+          },
+          {
+            "task": "task-ob-final-risk-28",
+            "outcome": "committed",
+            "detail": []
+          }
+        ],
+        "verdicts": [
+          {
+            "id": "ob-final-method",
+            "status": "open"
+          },
+          {
+            "id": "ob-final-risk",
+            "status": "open"
+          }
+        ]
+      }
+    },
+    {
+      "at": "2026-09-27T03:38:33.266Z",
+      "step": "A live reviewer requested changes or failed; the decision stays blocked (reported as-is, not overridden)",
+      "data": [
+        {
+          "id": "ob-ai-early",
+          "status": "open"
+        },
+        {
+          "id": "ob-final-method",
+          "status": "open"
+        },
+        {
+          "id": "ob-final-risk",
+          "status": "open"
+        }
+      ]
+    },
+    {
+      "at": "2026-09-27T03:38:33.952Z",
+      "step": "Broken package → recovery listed it → repaired from hash-verified source → exported and verified",
+      "data": {
+        "broken": {
+          "available": false,
+          "broken": [
+            "World project references unavailable package cd7e905da7c7",
+            "Commitment ob-final-method has no available continuation package",
+            "Commitment ob-final-risk has no available continuation package"
+          ],
+          "pending": [
+            "ob-ai-early",
+            "ob-final-method",
+            "ob-final-risk"
+          ]
+        },
+        "repaired": true,
+        "verify": {
+          "ok": true,
+          "problems": []
+        },
+        "closure": {
+          "packages": [
+            "41f59ff5d547e5ab7a1f4c4f0e998207fe591a754fcbb4032a83335fa188eba5",
+            "8d1a44ac1e6b912b28e326ca96b2c7abdf8657eab0bc4a4834f467e1a151ccb3",
+            "cd7e905da7c7ef5569f8f10aca6d946539508e76f56ce8bffde8ac5de4bab3ee"
+          ],
+          "artifacts": [
+            "c578bd656235158caa0063f9cf6ca426aaf76c36c7a88643c6c220da9fe927c4",
+            "e0ee2d775a7b24f58bfd124efd5e073fdfd6c7066bffc368d530be318a787055",
+            "e47435284c15ac1236ac679dbcb7d4aeb91e22f0533306e167e4ff6abf9147f2"
+          ]
+        }
+      }
+    }
+  ],
+  "reviewReceipts": [
+    {
+      "mode": "live-local-codex",
+      "model": "gpt-6-astra",
+      "start": "2026-09-27T03:28:42.747Z",
+      "end": "2026-09-27T03:28:53.061Z",
+      "seconds": 10,
+      "binaryHash": "8eaf1ad12fe6bf89b1710330f58900014322c7c5af677e43be116d8ac5fc0a9e",
+      "cliVersion": "codex-cli 0.155.1",
+      "inputHash": "6028f76047579fc8467f0fc5099446d06c442e1075112972949b770957fbe99b",
+      "configurationHash": "94948d28a92a9c606ebdf37f5885506c46aef283aa9b2e19d808ff52def1ffe6",
+      "exit": 0,
+      "classification": "exited",
+      "usage": {
+        "input_tokens": 11576,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 201,
+        "reasoning_output_tokens": 38
+      },
+      "outcome": "verdict changes_requested",
+      "stderrTail": ""
+    },
+    {
+      "mode": "live-local-codex",
+      "model": "gpt-6-astra",
+      "start": "2026-09-27T03:38:13.282Z",
+      "end": "2026-09-27T03:38:30.290Z",
+      "seconds": 17,
+      "binaryHash": "8eaf1ad12fe6bf89b1710330f58900014322c7c5af677e43be116d8ac5fc0a9e",
+      "cliVersion": "codex-cli 0.155.1",
+      "inputHash": "092d7c89f458b0820e7dd7603089fc6f8c496f8808f49a38a49cdf21dc51e952",
+      "configurationHash": "94948d28a92a9c606ebdf37f5885506c46aef283aa9b2e19d808ff52def1ffe6",
+      "exit": 0,
+      "classification": "exited",
+      "usage": {
+        "input_tokens": 12171,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 447,
+        "reasoning_output_tokens": 0
+      },
+      "outcome": "verdict changes_requested",
+      "stderrTail": ""
+    },
+    {
+      "mode": "live-local-codex",
+      "model": "gpt-6-astra",
+      "start": "2026-09-27T03:38:13.431Z",
+      "end": "2026-09-27T03:38:33.256Z",
+      "seconds": 20,
+      "binaryHash": "8eaf1ad12fe6bf89b1710330f58900014322c7c5af677e43be116d8ac5fc0a9e",
+      "cliVersion": "codex-cli 0.155.1",
+      "inputHash": "fb45748f162a0902cf5578814d231e2200065b2614f10aafdff529d42d6f71ad",
+      "configurationHash": "94948d28a92a9c606ebdf37f5885506c46aef283aa9b2e19d808ff52def1ffe6",
+      "exit": 0,
+      "classification": "exited",
+      "usage": {
+        "input_tokens": 12173,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 541,
+        "reasoning_output_tokens": 0
+      },
+      "outcome": "verdict changes_requested",
+      "stderrTail": ""
+    }
+  ],
+  "authorAttempts": [
+    {
+      "id": "p1-a1",
+      "state": "failed",
+      "receipt": {
+        "mode": "live-local-codex",
+        "model": "gpt-6-astra",
+        "start": "2026-09-27T03:28:53.193Z",
+        "end": "2026-09-27T03:30:54.105Z",
+        "seconds": 121,
+        "binaryHash": "8eaf1ad12fe6bf89b1710330f58900014322c7c5af677e43be116d8ac5fc0a9e",
+        "cliVersion": "codex-cli 0.155.1",
+        "inputHash": "3210bd6a446ca3980756c9678682174695413b59fe48ecd401de0d9bf9a8e239",
+        "configurationHash": "94948d28a92a9c606ebdf37f5885506c46aef283aa9b2e19d808ff52def1ffe6",
+        "exit": 0,
+        "classification": "exited",
+        "usage": {
+          "input_tokens": 14785,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3907,
+          "reasoning_output_tokens": 358
+        },
+        "outcome": "rejected-output",
+        "stderrTail": ""
+      },
+      "candidate_hash": null
+    },
+    {
+      "id": "p1-a2",
+      "state": "proposed",
+      "receipt": {
+        "mode": "live-local-codex",
+        "model": "gpt-6-astra",
+        "start": "2026-09-27T03:30:54.307Z",
+        "end": "2026-09-27T03:32:52.569Z",
+        "seconds": 118,
+        "binaryHash": "8eaf1ad12fe6bf89b1710330f58900014322c7c5af677e43be116d8ac5fc0a9e",
+        "cliVersion": "codex-cli 0.155.1",
+        "inputHash": "51da47513a912510bc5b931c2b4096cc533e1bd914de724e7681bd620a0b1c4a",
+        "configurationHash": "94948d28a92a9c606ebdf37f5885506c46aef283aa9b2e19d808ff52def1ffe6",
+        "exit": 0,
+        "classification": "exited",
+        "usage": {
+          "input_tokens": 14819,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3805,
+          "reasoning_output_tokens": 190
+        },
+        "outcome": "edits",
+        "stderrTail": ""
+      },
+      "candidate_hash": "0f47ec600783dad3ba362cb29b74f1d5533e64be6f0d951d0990baf8efab15d3"
+    },
+    {
+      "id": "p2-a1",
+      "state": "proposed",
+      "receipt": {
+        "mode": "live-local-codex",
+        "model": "gpt-6-astra",
+        "start": "2026-09-27T03:32:52.778Z",
+        "end": "2026-09-27T03:35:33.460Z",
+        "seconds": 161,
+        "binaryHash": "8eaf1ad12fe6bf89b1710330f58900014322c7c5af677e43be116d8ac5fc0a9e",
+        "cliVersion": "codex-cli 0.155.1",
+        "inputHash": "8a3f1b9635802f78adc62f7865a7a68ceb32d81f68e8d02e48883e608cd49141",
+        "configurationHash": "94948d28a92a9c606ebdf37f5885506c46aef283aa9b2e19d808ff52def1ffe6",
+        "exit": 0,
+        "classification": "exited",
+        "usage": {
+          "input_tokens": 17404,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5227,
+          "reasoning_output_tokens": 89
+        },
+        "outcome": "edits",
+        "stderrTail": ""
+      },
+      "candidate_hash": "1ba51a59f4d843ebfbaac95d497b56b5359eff01bd6c1b8ac0adcc33ce0c1a6c"
+    },
+    {
+      "id": "p2-a2",
+      "state": "proposed",
+      "receipt": {
+        "mode": "live-local-codex",
+        "model": "gpt-6-astra",
+        "start": "2026-09-27T03:35:33.740Z",
+        "end": "2026-09-27T03:38:13.056Z",
+        "seconds": 159,
+        "binaryHash": "8eaf1ad12fe6bf89b1710330f58900014322c7c5af677e43be116d8ac5fc0a9e",
+        "cliVersion": "codex-cli 0.155.1",
+        "inputHash": "454e8363936c410fcb2285add7d8efa5c6e9033b8f408803bfa683d68ccccd6c",
+        "configurationHash": "94948d28a92a9c606ebdf37f5885506c46aef283aa9b2e19d808ff52def1ffe6",
+        "exit": 0,
+        "classification": "exited",
+        "usage": {
+          "input_tokens": 21649,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5175,
+          "reasoning_output_tokens": 40
+        },
+        "outcome": "edits",
+        "stderrTail": ""
+      },
+      "candidate_hash": "1056682bb4b10447a430af4cda1719a56b59f48e1127558cbbd8220b47866b4f"
+    }
+  ]
+}

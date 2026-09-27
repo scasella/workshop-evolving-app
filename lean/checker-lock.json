@@ -1,0 +1,24 @@
+{
+  "binarySha256": "4d3f1544a00ed015afb4404006e61ffa86ef2da3640c36881f9bf5e42af80a69",
+  "sourceHash": "d41738d35f6145fce4b430e7784d2512fe6bcf3eb0b80772bcf41cb73b84b51f",
+  "contractHash": "a8ab2b4aa824c41494a729df33b0e184bc15ae0312fa239ec4fdb2fad4a37e7f",
+  "toolchain": "Lean (version 4.34.1, arm64-apple-darwin24.6.0, commit 5045d0056413266e57c625dcd7c365b10e377c52, Release)",
+  "theorems": [
+    "Workshop.preservation",
+    "Workshop.no_retired_continuation",
+    "Workshop.rebinds_sound",
+    "Workshop.keeps_identity_and_rule",
+    "Workshop.owner_approval",
+    "Workshop.stale_rejected",
+    "Workshop.dispositions_committed"
+  ],
+  "axioms": [
+    "'Workshop.preservation' depends on axioms: [propext, Classical.choice, Quot.sound]",
+    "'Workshop.no_retired_continuation' depends on axioms: [propext, Quot.sound]",
+    "'Workshop.rebinds_sound' depends on axioms: [propext, Quot.sound]",
+    "'Workshop.keeps_identity_and_rule' does not depend on any axioms",
+    "'Workshop.owner_approval' depends on axioms: [propext]",
+    "'Workshop.stale_rejected' depends on axioms: [propext, Quot.sound]",
+    "'Workshop.dispositions_committed' depends on axioms: [propext, Quot.sound]"
+  ]
+}

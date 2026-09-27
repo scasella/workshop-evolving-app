@@ -1,0 +1,14 @@
+{ "rules": [
+  { "id": "add_criterion", "when": { "eq": [ { "len": { "records": "criterion" } }, { "lit": 0 } ] },
+    "suggest": { "action": "add_criterion", "label": "Define the criteria you will compare against", "input": {} } },
+  { "id": "missing_evidence", "when": { "any": { "list": { "records": "alternative" }, "as": "a", "where": { "and": [
+      { "eq": [ { "get": [ { "var": "a" }, "status" ] }, { "lit": "candidate" } ] },
+      { "eq": [ { "len": { "related": { "relation": "supports", "to": { "get": [ { "var": "a" }, "id" ] } } } }, { "lit": 0 } ] } ] } } },
+    "suggest": { "action": "attach_evidence", "label": "Attach evidence for a candidate that has none", "input": {} } },
+  { "id": "ready_for_review", "when": { "and": [
+      { "ge": [ { "len": { "records": "criterion" } }, { "lit": 1 } ] },
+      { "all": { "list": { "records": "alternative" }, "as": "a", "where": { "or": [
+        { "eq": [ { "get": [ { "var": "a" }, "status" ] }, { "lit": "eliminated" } ] },
+        { "ge": [ { "len": { "related": { "relation": "supports", "to": { "get": [ { "var": "a" }, "id" ] } } } }, { "lit": 1 } ] } ] } } },
+      { "eq": [ { "len": { "obligations": { "status": [ "open", "blocked" ] } } }, { "lit": 0 } ] } ] },
+    "suggest": { "action": "request_comparison_review", "label": "Evidence is complete: require a comparison review", "input": {} } } ] }

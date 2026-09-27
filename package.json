@@ -1,0 +1,41 @@
+{
+  "name": "workshop",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "25.8.1"
+  },
+  "scripts": {
+    "start": "node src/host/cli.ts serve .workshop/host",
+    "test": "node --test test/*.test.ts",
+    "check": "tsc -p tsconfig.json",
+    "r:build": "node scripts/r-build.ts",
+    "export:offline-check": "node scripts/export-offline-check.ts",
+    "demo:recorded": "node scripts/demo-recorded.ts",
+    "live:paid-demo": "node scripts/live-demo.ts",
+    "author:probe": "node scripts/probe-codex-tools.ts",
+    "author:fixture": "node scripts/author-fixture.ts",
+    "author:docker:build": "sh scripts/build-author-docker.sh",
+    "author:docker:probe": "node scripts/probe-docker.ts",
+    "author:docker:live": "node scripts/author-docker-live.ts",
+    "spike:demo": "node src/demo.ts"
+  },
+  "devDependencies": {
+    "@types/node": "25.9.8",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "7.0.2"
+  },
+  "dependencies": {
+    "fastify": "5.12.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "license": "MIT",
+  "description": "A local project workspace whose app can be reprogrammed through checked packages without losing open commitments",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scasella/workshop-evolving-app.git"
+  },
+  "version": "0.1.0"
+}

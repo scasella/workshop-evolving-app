@@ -1,0 +1,18 @@
+{ "rules": [
+  { "id": "third_option", "when": { "lt": [ { "count": { "list": { "records": "alternative" }, "as": "a", "where": { "eq": [ { "get": [ { "var": "a" }, "status" ] }, { "lit": "candidate" } ] } } }, { "lit": 3 } ] },
+    "suggest": { "action": "add_alternative", "label": "Add a third option to compare", "input": {} } },
+  { "id": "add_criterion", "when": { "eq": [ { "len": { "records": "criterion" } }, { "lit": 0 } ] },
+    "suggest": { "action": "add_criterion", "label": "Define the criteria you will compare against", "input": {} } },
+  { "id": "needs_measurement", "when": { "any": { "list": { "records": "alternative" }, "as": "a", "where": { "and": [
+      { "eq": [ { "get": [ { "var": "a" }, "status" ] }, { "lit": "candidate" } ] },
+      { "not": { "any": { "list": { "related": { "relation": "supports", "to": { "get": [ { "var": "a" }, "id" ] } } }, "as": "s",
+        "where": { "eq": [ { "get": [ { "record": { "get": [ { "var": "s" }, "from" ] } }, "basis" ] }, { "lit": "measured" } ] } } } } ] } } },
+    "suggest": { "action": "attach_evidence", "label": "A candidate has no measured result yet: attach one", "input": { "basis": { "lit": "measured" }, "kind": { "lit": "measurement" } } } },
+  { "id": "ready_for_parallel_review", "when": { "and": [
+      { "ge": [ { "count": { "list": { "records": "alternative" }, "as": "a", "where": { "eq": [ { "get": [ { "var": "a" }, "status" ] }, { "lit": "candidate" } ] } } }, { "lit": 3 } ] },
+      { "all": { "list": { "records": "alternative" }, "as": "a", "where": { "or": [
+        { "eq": [ { "get": [ { "var": "a" }, "status" ] }, { "lit": "eliminated" } ] },
+        { "any": { "list": { "related": { "relation": "supports", "to": { "get": [ { "var": "a" }, "id" ] } } }, "as": "s",
+          "where": { "eq": [ { "get": [ { "record": { "get": [ { "var": "s" }, "from" ] } }, "basis" ] }, { "lit": "measured" } ] } } } ] } } },
+      { "eq": [ { "len": { "obligations": { "status": [ "open", "blocked" ] } } }, { "lit": 0 } ] } ] },
+    "suggest": { "action": "request_parallel_reviews", "label": "Measured results cover every option: start both independent reviews", "input": {} } } ] }

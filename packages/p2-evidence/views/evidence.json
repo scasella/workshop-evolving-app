@@ -1,0 +1,7 @@
+{ "id": "evidence", "title": "Evidence", "kind": "table", "empty": "No evidence attached.",
+  "rows": { "related": { "relation": "supports" } },
+  "columns": [
+    { "label": "Evidence", "value": { "get": [ { "record": { "get": [ { "var": "row" }, "from" ] } }, "title" ] } },
+    { "label": "Kind", "value": { "get": [ { "record": { "get": [ { "var": "row" }, "from" ] } }, "kind" ] } },
+    { "label": "For", "value": { "get": [ { "record": { "get": [ { "var": "row" }, "to" ] } }, "title" ] } },
+    { "label": "Stance", "value": { "get": [ { "var": "row" }, "stance" ] } } ] }

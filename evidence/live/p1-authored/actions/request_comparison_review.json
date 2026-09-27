@@ -1,0 +1,34 @@
+{
+  "id": "request_comparison_review",
+  "title": "Request comparison review",
+  "inputs": {
+    "key": {"type": "string", "max": 60},
+    "decision": {"type": "string", "max": 80}
+  },
+  "let": [
+    {"name": "d", "value": {"decision": {"input": "decision"}}},
+    {"name": "alternatives", "value": {"records": "alternative"}},
+    {"name": "criteria", "value": {"records": "criterion"}},
+    {"name": "alternative_ids", "value": {"map": {"list": {"var": "alternatives"}, "as": "a", "to": {"get": [{"var": "a"}, "id"]}}}},
+    {"name": "evidence_ids", "value": {"map": {"list": {"filter": {"list": {"records": "evidence"}, "as": "e", "where": {"any": {"list": {"var": "alternatives"}, "as": "a", "where": {"gt": [{"len": {"related": {"relation": "alternative_evidence", "from": {"get": [{"var": "a"}, "id"]}, "to": {"get": [{"var": "e"}, "id"]}}}}, {"lit": 0}]}}}}}, "as": "e", "to": {"get": [{"var": "e"}, "id"]}}}}
+  ],
+  "requires": [
+    {"when": {"exists": {"var": "d"}}, "reason": "Start the decision first."},
+    {"when": {"ge": [{"len": {"var": "alternatives"}}, {"lit": 2}]}, "reason": "Add at least two alternatives."},
+    {"when": {"gt": [{"len": {"var": "criteria"}}, {"lit": 0}]}, "reason": "Add at least one criterion."},
+    {"when": {"all": {"list": {"var": "alternatives"}, "as": "a", "where": {"all": {"list": {"var": "criteria"}, "as": "c", "where": {"gt": [{"len": {"related": {"relation": "criterion_score", "from": {"get": [{"var": "a"}, "id"]}, "to": {"get": [{"var": "c"}, "id"]}}}}, {"lit": 0}]}}}}}, "reason": "Score every alternative on every criterion."},
+    {"when": {"all": {"list": {"var": "alternatives"}, "as": "a", "where": {"gt": [{"len": {"related": {"relation": "alternative_evidence", "from": {"get": [{"var": "a"}, "id"]}}}}, {"lit": 0}]}}}, "reason": "Attach at least one piece of evidence to every alternative."},
+    {"when": {"eq": [{"len": {"obligations": {"subject": {"concat": [{"lit": "ob-"}, {"input": "key"}]}}}}, {"lit": 0}]}, "reason": "Use a new review key."}
+  ],
+  "effects": [
+    {"obligation": {
+      "key": {"input": "key"},
+      "title": {"concat": [{"lit": "Comparison review: "}, {"get": [{"var": "d"}, "question"]}]},
+      "subjects": {"union": [{"var": "alternative_ids"}, {"var": "evidence_ids"}]},
+      "gate": {"input": "decision"},
+      "verdicts": ["approve"],
+      "discharge": "owner",
+      "continuation": "record_review"
+    }}
+  ]
+}

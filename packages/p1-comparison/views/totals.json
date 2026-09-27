@@ -1,0 +1,8 @@
+{ "id": "totals", "title": "Weighted totals", "kind": "table", "empty": "No candidates.",
+  "rows": { "filter": { "list": { "records": "alternative" }, "as": "a", "where": { "eq": [ { "get": [ { "var": "a" }, "status" ] }, { "lit": "candidate" } ] } } },
+  "columns": [
+    { "label": "Candidate", "value": { "get": [ { "var": "row" }, "title" ] } },
+    { "label": "Weighted score", "value": { "sum": { "list": { "related": { "relation": "scores", "from": { "get": [ { "var": "row" }, "id" ] } } }, "as": "s",
+        "to": { "mul": [ { "get": [ { "var": "s" }, "score" ] }, { "get": [ { "record": { "get": [ { "var": "s" }, "to" ] } }, "weight" ] } ] } } } },
+    { "label": "Evidence", "value": { "len": { "related": { "relation": "supports", "to": { "get": [ { "var": "row" }, "id" ] } } } } } ],
+  "actions": [ { "action": "eliminate", "label": "Eliminate", "input": { "id": { "get": [ { "var": "row" }, "id" ] } } } ] }
